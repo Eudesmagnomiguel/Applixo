@@ -1,0 +1,36 @@
+:root {
+    --title-color: #6d889c;
+    --primary-color: #34cb79;
+  
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+/* Estilos para o gradiente de fundo */
+body {
+    background: linear-gradient(130deg, #1a237e, #00acc1);
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Resto dos estilos (seus estilos já existentes) */
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--title-color);
+}

@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    padding: 20px;
+  }
+  
+  .grid-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    border-radius: 3%;
+
+  }
+.grid-item:hover {
+    background-color: #aaf5cb;
+    transition: 1s;
+    
+  }
+  
+  .grid-item img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  
+#page-create-point {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+}
+.imagesr{
+    position: relative;
+   width: 100%;
+}
+.imagesr img{
+    position: absolute;
+    width:110px;
+    height:150px;
+    right: 0;
+   bottom: 0;
+   opacity: 0.8;
+}
+
+.imagesslide{
+    display: block;
+    box-sizing: border-box;
+
+}
+.imagesslide img{
+    width: 50px;
+    height: 90px;
+    margin: 10px;
+}
+#page-create-point header {
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#page-create-point header a {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+#page-create-point header a span {
+    margin-right: 16px;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    color: #34cb79;
+    align-items: center;
+}
+
+form {
+    background-color: #fff;
+
+    margin: 80px auto;
+    padding: 64px;
+
+    border-radius: 8px;
+
+    max-width: 730px;
+
+}
+
+form h1 {
+    font-size: 36px;
+
+}
+
+form fieldset {
+    margin-top: 64px;
+
+    border: 0;
+}
+
+form legend {
+    margin-bottom: 40px;
+}
+
+form legend h2 {
+    font-size: 24px;
+}
+
+form .field {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    margin-bottom: 24px;
+}
+
+form .field-group {
+    display: flex;
+    
+}
+
+form input, form select {
+    background-color: #f0f0f5;
+    border: 0;
+    padding: 16px 24px;
+    font-size: 16px;
+
+    border-radius: 8px;
+
+    outline: none;
+}
+
+form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+form label {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+form .field-group .field + .field {
+    margin-left: 24px;
+}
+
+form button {
+    width: 260px;
+    height: 56px;
+
+    background-color: var(--primary-color);
+    border: 0;
+    border-radius: 8px;
+
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+
+    margin-top: 40px;
+
+    transition: 400ms;
+}
+
+form button:hover {
+    background-color: #2fb86e;
+}

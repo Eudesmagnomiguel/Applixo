@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="styles/styles.css">
+       <link rel="stylesheet" href="estilo.css">
+    <title>App Lixo</title>
+</head>
+<body>
+
+    <div id="page-home">
+
+        <div class="content">
+            <nav class="nav">
+                <div>
+                <ul>
+                    <li><a href="index.html"><span class="material-icons">home</span> Início</a></li>
+                    <li><a href="serviços.html"><span class="material-icons">eco</span> Serviços</a></li>
+                     <li><a href="recolha.html"><span class="material-icons">eco</span>Solicitar Recolha</a></li>
+                    <li><a href="educa.html"><span class="material-icons">eco</span> Crédito Verde</a></li>
+                    <li><a href="serviços.html"><span class="material-icons">eco</span>Meio Ambiente</a></li>
+                      <li><a href="Map.html"><span class="material-icons">map</span> Pontos de Recolha</a></li>
+                       <li><a href="educa.html"><span class="material-icons">info</span> Sobre Nós</a></li>
+
+                </ul>
+            </div>
+            </nav>
+            
+            <header>
+                <img src="./assets/icones/logo.png" alt="Logo Ecoleta" class="logo">
+                <a href="create-point.html">
+                    <span class="material-icons">person_add</span>
+                    Cadastrar um ponto de coleta
+                </a>
+            </header>
+
+            <main class="principal">
+                <div>
+                <h1>Coleta de Resíduos Domiciliar</h1>
+                <p>Ajudamos a coletar seus resíduos de maneira eficiente e sustentável.</p>
+                <a href="recolha.html" class="Solicite">
+                    <span class="material-icons">recycling</span>
+                    <strong>Solicitar Recolha</strong>
+                </a>
+            </div>
+            </main>
+            
+        </div>
+        
+    </div>
+
+      <div class="container">
+       <!-- Project content container -->
+     
+       <div class="swiper mySwiper">
+ 
+           <div class="swiper-wrapper">
+             <div class="swiper-slide slide_1"><h1> Plástico</h1></div>
+             <div class="swiper-slide slide_2"><h1> Papelão</h1></div>
+             <div class="swiper-slide slide_3"><h1> Resíduo Orgânico</h1></div>
+             <div class="swiper-slide slide_4"><h1> Lixo Electrônico</h1></div>
+             <div class="swiper-slide slide_5"><h1> Vidros</h1></div>
+           </div>
+         </div>
+   </div>
+
+
+   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+   <script src="/script.js"></script>
+<script>
+letswiper = new Swiper(".mySwiper", {
+ scrollbar: {
+   el: ".swiper-scrollbar",
+   hide: true,
+ },
+});
+
+</script>
+
+</body>
+</html>

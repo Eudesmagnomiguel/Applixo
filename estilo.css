@@ -1,0 +1,135 @@
+﻿/* Import google font (Balsamiq Sans) */
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+/* Box sizing rules */
+/* Default anchor tag styling */
+a {
+   text-decoration: none;
+   color: black;
+}
+
+
+
+/* Default image styling */
+img {
+   padding: 1rem;
+   max-width: 75%;
+   height: auto;
+}
+
+
+/* Body styling */
+
+
+
+.container {
+   width: 100%;
+   height: 100%;
+   float: right;
+
+}
+
+
+.container > div {
+   top: 30vh;
+   height: 20vh;
+   margin-bottom: 120px;
+   cursor: pointer;
+}
+
+
+
+/* Swiper container stylng */
+.swiper {
+
+   width: 100%;
+   height: 100%;
+
+}
+.swiper h1 {
+
+color: azure;
+
+}
+
+.swiper-slide {
+   text-align: center;
+    /* Center slide text vertically */
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   display: flex;
+   -webkit-box-pack: center;
+   -ms-flex-pack: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   -webkit-align-items: center;
+   align-items: center;
+}
+ .swiper-slide img {
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+ }
+
+
+.slide_1 {
+   background-color:#41d165 ;
+}
+
+
+.slide_2 {
+   background-color:#c7e364 ;
+}
+
+
+.slide_3 {
+   background-color:#a33c5e ;
+}
+
+
+.slide_4 {
+   background-color:#4656e4 ;
+}
+
+
+.slide_5 {
+   background-color:#a5b5c2 ;
+}
+
+
+/* Import Google Font (Balsamiq Sans) */
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Resto do seu CSS aqui */
+
+/* Animação do Slide */
+@keyframes slideAnimation {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-100%);
+    }
+    40% {
+        transform: translateX(-200%);
+    }
+    60% {
+        transform: translateX(-300%);
+    }
+    80% {
+        transform: translateX(-400%);
+    }
+    100% {
+        transform: translateX(-500%);
+    }
+}
+
+.swiper-wrapper {
+    display: flex;
+    animation: slideAnimations 25s infinite;
+}

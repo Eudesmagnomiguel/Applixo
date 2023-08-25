@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>App Lixo</title>
+  <link href="css/style.css" rel="stylesheet">
+  <style type="text/css">
+    html {
+      height: 100%
+    }
+#search-area button:hover{
+    transition: 1s;
+     background: #fff ;
+      color:#2fb86e;
+      cursor: pointer;
+
+}
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0
+    }
+
+    #map_canvas {
+      height: 100%
+    }
+
+    .overlay {
+      position: fixed;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #aaa;
+      padding: 20px;
+      z-index: 5;
+    }
+
+    #search-area {
+      right: 40px;
+      top: 40px;
+    }
+
+    #listing {
+      left: 40px;
+      bottom: 150px;
+    }
+
+    #listing li {
+      list-style: none;
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #listing li:hover {
+      background: #2fb86e;
+      color: #fff;
+    }
+
+    button {
+      border-radius:6px;
+      background: #2fb86e;
+      color: #fff;
+      font-weight: bold;
+      border: 1px solid rgba(220, 226, 223, 0.85);
+      font-size: 14px;
+      padding: 10px 15px;
+      outline: none;
+    }
+  </style>
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?&sensor=false"></script>
+  <script type="text/javascript" src="lib/jquery-2.0.3.js"></script>
+  <script type="text/javascript" src="lib/underscore.js"></script>
+  <script type="text/javascript" src="lib/backbone.js"></script>
+ <script type="text/javascript" src="lib/backbone.googlemaps.js"></script>
+ <script type="text/javascript" src="lib/backbone.googlemaps-min.js"></script>
+</head>
+
+<body>
+
+<!-- TEMPLATE: InfoWindow
+ ============================== -->
+<script id="infoWindow-template" type="text/html">
+  <h2><%=title %></h2>
+  <p>Latitude: <%=lat %></p>
+  <p>Longitude: <%=lng %></p>
+</script>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d63052.051519542845!2d13.458429991551942!3d-8.994840920347901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-PT!2sao!4v1692704092281!5m2!1spt-PT!2sao" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+<div id="search-area" class="overlay">
+  <button id="museums">Encontrar Pontos de Coleta</button>
+  <button id="bars">Encontrar outros pontos</button>
+  <!-- <button id="addBtn">Cadastrar Pontos</button> -->
+ <a href="index.html"> <button id="addBtn">Menu Principal</button> </a>
+  <a href="recolha.html"> <button id="addBtn">Solicitar Recolha</button> </a>
+</div>
+
+<div id="map_canvas" style="width:100%; height:100%"></div>
+<!--
+lat: -8.985430753393453,
+      lng: 13.410021483717774
+  -->
+
+<script type="text/javascript">
+/**
+ * Example App
+ */
+
+// Sample Data
+var museums = [
+  {
+    title: "Ponto de Coleta de Lixo Viana",
+   
+    type: 'Ponto de Recolha de Lixo'
+  },
+  {
+    title: "Ponto de Coleta de Lixo Talatona",
+  
+    type: 'Ponto de Recolha de Lixo'
+  },
+  {
+    title: "Ponto de Coleta de Lixo Cacuaco",
+      
+    type: 'Ponto de Recolha de Lixo'
+  }
+];
+var bars = [
+  {
+    title: "Ponto de Coleta de Lixo Zango",
+  
+    type: 'Ponto de Recolha de Lixo'
+  },
+  {
+    title: "Ponto de Coleta de Lixo Kilamba",
+    
+    type: 'Ponto de Recolha de Lixo'
+  },
+  {
+    title: "Ponto de Coleta de Lixo Benfica",
+    
+    type: 'Ponto de Recolha de Lixo'
+  }
+];
+
+var App = {};
+
+App.Location = Backbone.GoogleMaps.Location.extend({
+  idAttribute: 'title',
+  defaults: {
+   lat: -8.985430753393453,
+      lng: 13.410021483717774
+  }
+});
+
+App.LocationCollection = Backbone.GoogleMaps.LocationCollection.extend({
+  model: App.Location
+});
+
+App.InfoWindow = Backbone.GoogleMaps.InfoWindow.extend({
+  template: '#infoWindow-template',
+
+  events: {
+    'mouseenter h2': 'logTest'
+  },
+
+  logTest: function() {
+    console.log('test in InfoWindow');
+  }
+});
+
+App.MarkerView = Backbone.GoogleMaps.MarkerView.extend({
+  infoWindow: App.InfoWindow,
+
+  initialize: function() {
+    _.bindAll(this, 'handleDragEnd');
+  },
+
+  mapEvents: {
+    'dragend': 'handleDragEnd',
+    dblclick: 'tellTheWorldAboutIt'
+  },
+
+  handleDragEnd: function(e) {
+    alert('Dropped at: \n Lat: ' + e.latLng.lat() + '\n lng: ' + e.latLng.lng());
+  },
+
+  tellTheWorldAboutIt: function() {
+    console.assert(this instanceof App.MarkerView);
+    alert('You done gone and double-clicked me!');
+    this.logIt('I hope you know that this will go down on your permanent record.')
+  },
+
+  logIt: function(message) {
+    console.assert(this instanceof App.MarkerView);
+    console.log(message);
+  }
+});
+
+App.MuseumMarker = App.MarkerView.extend({
+  overlayOptions: {
+    draggable: true,
+    icon: 'assets/museum.png'
+  }
+});
+
+App.BarMarker = App.MarkerView.extend({
+  overlayOptions: {
+    draggable: true,
+    icon: 'assets/beer.png'
+  }
+});
+
+App.MarkerCollectionView = Backbone.GoogleMaps.MarkerCollectionView.extend({
+  markerView: App.MarkerView,
+
+  addChild: function(model) {
+    this.markerView = model.get('type') === 'museum' ?
+            App.MuseumMarker :
+            App.BarMarker;
+
+    Backbone.GoogleMaps.MarkerCollectionView.prototype.addChild.apply(this, arguments);
+  }
+});
+
+App.init = function() {
+  this.createMap();
+
+  this.places = new this.LocationCollection(museums);
+
+  // Render Markers
+  var markerCollectionView = new this.MarkerCollectionView({
+    collection: this.places,
+    map: this.map
+  });
+  markerCollectionView.render();
+
+  // Render ListView
+  var listView = new App.ListView({
+    collection: this.places
+  });
+  listView.render();
+}
+
+App.createMap = function() {
+  var mapOptions = {
+    /**
+    center: new google.maps.LatLng(-8.985430753393453, 13.410021483717774),
+    zoom: 0,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+    */
+  }
+
+  // Instantiate map
+  this.map = new google.maps.Map($('#map_canvas')[0], mapOptions);
+}
+
+
+/**
+ * List view
+ */
+App.ItemView = Backbone.View.extend({
+  template: '<%=title %>',
+  tagName: 'li',
+
+  events: {
+    'mouseenter': 'selectItem',
+    'mouseleave': 'deselectItem'
+  },
+
+  initialize: function() {
+    _.bindAll(this, 'render', 'selectItem', 'deselectItem')
+
+    this.model.on("remove", this.close, this);
+  },
+
+  render: function() {
+    var html = _.template(this.template, this.model.toJSON());
+    this.$el.html(html);
+
+    return this;
+  },
+
+  close: function() {
+    this.$el.remove();
+  },
+
+  selectItem: function() {
+    this.model.select();
+  },
+
+  deselectItem: function() {
+    this.model.deselect();
+  }
+});
+
+App.ListView = Backbone.View.extend({
+  tagName: 'ul',
+  className: 'overlay',
+  id: 'listing',
+
+  initialize: function() {
+    _.bindAll(this, "refresh", "addChild");
+
+    this.collection.on("reset", this.refresh, this);
+    this.collection.on("add", this.addChild, this);
+
+    this.$el.appendTo('body');
+  },
+
+  render: function() {
+    this.collection.each(this.addChild);
+  },
+
+  addChild: function(childModel) {
+    var childView = new App.ItemView({ model: childModel });
+    childView.render().$el.appendTo(this.$el);
+  },
+
+  refresh: function() {
+    this.$el.empty();
+    this.render();
+  }
+});
+
+
+$(document).ready(function() {
+  App.init();
+
+  $('#bars').click(function() {
+    App.places.reset(bars);
+  });
+
+  $('#museums').click(function() {
+    App.places.reset(museums);
+  });
+
+  $('#addBtn').click(function() {
+    App.places.add({
+      title: 'Ponto de Coleta de Lixo',
+      lat: -8.985430753393453,
+      lng: 13.410021483717774,
+    });
+  });
+
+  $('#removeBtn').click(function() {
+    App.places.remove(App.places.at(0));
+  });
+});
+
+
+</script>
+</body>
+</html>
