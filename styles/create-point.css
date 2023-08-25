@@ -173,3 +173,35 @@ form button {
 form button:hover {
     background-color: #2fb86e;
 }
+
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .imagesslide img {
+        width: 30px;
+        height: 60px;
+        margin: 5px;
+    }
+
+    form {
+        margin: 40px auto;
+        padding: 32px;
+        max-width: 100%;
+    }
+
+    form button {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .imagesr img {
+        width: 80px;
+        height: 110px;
+    }
+    .field{ width: 130px;}
+}
