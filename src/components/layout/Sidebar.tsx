@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, ShoppingBag, Recycle, Info, User, Bell, History, FileText, Award, LogOut, Settings, Menu } from 'lucide-react';
+import { Home, ShoppingBag, Recycle, Info, User, Bell, History, FileText, Award, LogOut, Settings, Menu, Rocket } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Logo, AppLixoLogoText } from '@/components/icons/Logo';
@@ -33,6 +33,7 @@ const navLinks: NavLinkItem[] = [
     href: '#', icon: Settings, label: 'Mais', subItems: [
       { href: '/faq', icon: Info, label: 'Perguntas Frequentes' },
       { href: '/legal', icon: FileText, label: 'Informações Legais' },
+      { href: '/about-applixo', icon: Rocket, label: 'Sobre APPLIXO' },
     ]
   },
 ];
