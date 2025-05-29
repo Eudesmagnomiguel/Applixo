@@ -18,7 +18,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { format } from "date-fns";
 import { ptBR } from 'date-fns/locale';
-import { ArrowLeft, ArrowRight, ShoppingBag, CreditCard, CheckCircle, XCircle, Info, CalendarClock, MapPinIcon, User, Phone, Mail, Trash2, NotebookPen, Scale, CalendarIcon } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ShoppingBag, CreditCard, CheckCircle, XCircle, Info, CalendarClock, MapPinIcon, User, Phone, Mail, Trash2, NotebookPen, Scale, CalendarIcon, CalendarDays, Clock } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
