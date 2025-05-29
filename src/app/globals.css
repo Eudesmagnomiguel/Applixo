@@ -11,14 +11,14 @@
     --card-foreground: 90 10% 25%;
     --popover: 90 60% 100%;
     --popover-foreground: 90 10% 25%;
-    --primary: 140 66% 45%; /* New Green #27C15E */
+    --primary: 140 66% 45%; /* Green #27C15E */
     --primary-foreground: 140 66% 95%; /* Very light text for on-green buttons */
-    --secondary: 140 50% 65%; /* Adjusted hue, lighter/muted green */
-    --secondary-foreground: 140 50% 15%; /* Adjusted hue, dark text for secondary */
+    --secondary: 87 58% 64%; /* New Lighter Green #B0DD6D */
+    --secondary-foreground: 87 58% 15%; /* Dark text for new lighter green secondary */
     --muted: 90 40% 90%;
     --muted-foreground: 90 20% 45%;
-    --accent: 140 66% 50%; /* Adjusted hue, slightly lighter green for hover/accent */
-    --accent-foreground: 140 66% 10%; /* Adjusted hue, dark text for accent */
+    --accent: 140 66% 50%; /* Derived from primary green, slightly lighter for hover/accent */
+    --accent-foreground: 140 66% 10%; /* Dark text for accent */
     --destructive: 0 84.2% 60.2%; /* Default red */
     --destructive-foreground: 0 0% 98%;
     --border: 90 30% 85%;
@@ -32,14 +32,14 @@
     --radius: 0.5rem;
 
     /* Sidebar specific colors - Light Theme */
-    --sidebar-background: 140 55% 65%; /* Adjusted hue */
-    --sidebar-foreground: 140 55% 15%; /* Adjusted hue */
-    --sidebar-primary: 140 66% 45%; /* Match new primary */
-    --sidebar-primary-foreground: 140 66% 95%; /* Match new primary-foreground */
-    --sidebar-accent: 140 66% 45%; /* Match new primary */
-    --sidebar-accent-foreground: 140 66% 95%; /* Match new primary-foreground */
-    --sidebar-border: 140 55% 55%; /* Adjusted hue */
-    --sidebar-ring: 140 66% 45%; /* Match new primary */
+    --sidebar-background: 140 55% 65%; 
+    --sidebar-foreground: 140 55% 15%; 
+    --sidebar-primary: 140 66% 45%; 
+    --sidebar-primary-foreground: 140 66% 95%; 
+    --sidebar-accent: 140 66% 45%; 
+    --sidebar-accent-foreground: 140 66% 95%; 
+    --sidebar-border: 140 55% 55%; 
+    --sidebar-ring: 140 66% 45%; 
   }
 
   .dark {
@@ -49,14 +49,14 @@
     --card-foreground: 90 30% 90%;
     --popover: 90 10% 12%;
     --popover-foreground: 90 30% 90%;
-    --primary: 140 66% 50%; /* New Green #27C15E, slightly lighter for dark mode */
-    --primary-foreground: 140 66% 10%; /* Adjusted for new primary */
-    --secondary: 140 50% 45%; /* Adjusted hue, for dark secondary */
-    --secondary-foreground: 140 50% 90%; /* Adjusted hue, for dark secondary */
+    --primary: 140 66% 50%; /* Green #27C15E, slightly lighter for dark mode */
+    --primary-foreground: 140 66% 10%; 
+    --secondary: 87 50% 30%; /* New Darker version of Lighter Green #B0DD6D */
+    --secondary-foreground: 87 50% 85%; /* Light text for new dark lighter green secondary */
     --muted: 90 10% 20%;
     --muted-foreground: 90 20% 65%;
-    --accent: 140 66% 40%; /* Adjusted hue, darker for dark accent */
-    --accent-foreground: 140 66% 90%; /* Adjusted hue, for dark accent */
+    --accent: 140 66% 40%; /* Derived from primary green, darker for dark accent */
+    --accent-foreground: 140 66% 90%; 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 90 10% 25%;
@@ -69,14 +69,14 @@
     --chart-5: 340 75% 55%;
 
     /* Sidebar specific colors - Dark Theme */
-    --sidebar-background: 140 45% 22%; /* Adjusted hue */
-    --sidebar-foreground: 140 45% 88%; /* Adjusted hue */
-    --sidebar-primary: 140 66% 50%; /* Match new dark primary */
-    --sidebar-primary-foreground: 140 66% 10%; /* Match new dark primary-foreground */
-    --sidebar-accent: 140 66% 50%; /* Match new dark primary */
-    --sidebar-accent-foreground: 140 66% 10%; /* Match new dark primary-foreground */
-    --sidebar-border: 140 45% 18%; /* Adjusted hue */
-    --sidebar-ring: 140 66% 50%; /* Match new dark primary */
+    --sidebar-background: 140 45% 22%; 
+    --sidebar-foreground: 140 45% 88%; 
+    --sidebar-primary: 140 66% 50%; 
+    --sidebar-primary-foreground: 140 66% 10%; 
+    --sidebar-accent: 140 66% 50%; 
+    --sidebar-accent-foreground: 140 66% 10%; 
+    --sidebar-border: 140 45% 18%; 
+    --sidebar-ring: 140 66% 50%; 
   }
 }
 
