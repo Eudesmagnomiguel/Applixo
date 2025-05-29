@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -31,13 +32,13 @@
     --radius: 0.5rem;
 
     /* Sidebar specific colors - Light Theme */
-    --sidebar-background: 85 50% 65%; 
-    --sidebar-foreground: 85 50% 95%; 
+    --sidebar-background: 85 55% 65%; 
+    --sidebar-foreground: 85 55% 15%; 
     --sidebar-primary: 85 65% 50%; 
     --sidebar-primary-foreground: 85 65% 95%;
-    --sidebar-accent: 85 65% 55%; 
-    --sidebar-accent-foreground: 85 65% 95%;
-    --sidebar-border: 85 50% 55%; 
+    --sidebar-accent: 85 65% 50%; /* Uses main primary color */
+    --sidebar-accent-foreground: 85 65% 95%; /* Uses main primary-foreground color */
+    --sidebar-border: 85 55% 55%; 
     --sidebar-ring: 85 65% 50%; 
   }
 
@@ -68,13 +69,13 @@
     --chart-5: 340 75% 55%;
 
     /* Sidebar specific colors - Dark Theme */
-    --sidebar-background: 85 40% 25%; 
-    --sidebar-foreground: 85 40% 90%; 
+    --sidebar-background: 85 45% 22%; 
+    --sidebar-foreground: 85 45% 88%; 
     --sidebar-primary: 85 60% 55%; 
     --sidebar-primary-foreground: 85 60% 10%;
-    --sidebar-accent: 85 50% 35%; 
-    --sidebar-accent-foreground: 85 50% 90%;
-    --sidebar-border: 85 40% 20%; 
+    --sidebar-accent: 85 60% 55%; /* Uses main dark primary color */
+    --sidebar-accent-foreground: 85 60% 10%; /* Uses main dark primary-foreground color */
+    --sidebar-border: 85 45% 18%; 
     --sidebar-ring: 85 60% 55%;
   }
 }
