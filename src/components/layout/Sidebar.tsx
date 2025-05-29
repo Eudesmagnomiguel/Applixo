@@ -22,7 +22,7 @@ const navLinks: NavLinkItem[] = [
   { href: '/', icon: Home, label: 'Início', isMain: true },
   { href: '/request-collection', icon: ShoppingBag, label: 'Solicitar Coleta', isMain: true },
   { href: '/recycling-info', icon: Recycle, label: 'Info Reciclagem', isMain: true },
-  { href: '/detect-item', icon: Camera, label: 'Detectar Item', isMain: true },
+  { href: '/detect-item', icon: Camera, label: 'Detectar Resíduo', isMain: true },
   {
     href: '/profile', icon: User, label: 'Perfil', subItems: [
       { href: '/profile', icon: User, label: 'Minhas Informações' },

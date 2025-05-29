@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview An AI flow to detect recyclable items from images.
@@ -20,8 +21,8 @@ const DetectRecyclableItemInputSchema = z.object({
 export type DetectRecyclableItemInput = z.infer<typeof DetectRecyclableItemInputSchema>;
 
 const DetectRecyclableItemOutputSchema = z.object({
-  itemName: z.string().describe('The common name of the primary item detected in the image. If no specific item is identifiable, return "Unknown Item".'),
-  itemCategory: z.string().describe('The general recycling category for this item (e.g., Plastic, Paper, Glass, Metal, Electronics, Organic, Not Recyclable, Unknown). Default to "Unknown" if not clear.'),
+  itemName: z.string().describe('The common name of the primary item detected in the image. If no specific item is identifiable, return "Resíduo Desconhecido".'),
+  itemCategory: z.string().describe('The general recycling category for this item (e.g., Plastic, Paper, Glass, Metal, Electronics, Organic, Not Recyclable, Unknown). Default to "Desconhecido" if not clear.'),
   isRecyclable: z.boolean().describe('Whether this item is commonly recyclable. Default to false if uncertain.'),
   recyclingAdvice: z.string().describe('Brief advice on how to prepare this item for recycling (e.g., "Empty and rinse. Remove cap.") or why it might not be recyclable. Provide helpful general advice if the item is "Unknown".'),
 });
@@ -40,13 +41,13 @@ const prompt = ai.definePrompt({
 Your tasks are:
 1.  Identify the primary item in the image. If multiple items are present, focus on the most prominent one or the one most likely being queried for recycling.
 2.  Determine if this item is commonly recyclable.
-3.  Classify the item into one of the following categories: Plastic, Paper, Cardboard, Glass, Metal, Electronics, Organic, Textile, Not Recyclable, or Unknown.
-4.  Provide brief, actionable advice (1-2 sentences) on how to prepare the item for recycling if it is recyclable. If it's not recyclable, briefly explain why or suggest alternative disposal. If the item or its recyclability is unknown, provide general good-practice recycling advice.
+3.  Classify the item into one of the following categories: Plástico, Papel, Cartão, Vidro, Metal, Eletrônicos, Orgânico, Têxtil, Não Reciclável, or Desconhecido.
+4.  Provide brief, actionable advice (1-2 sentences) in Portuguese (Portugal/Angola) on how to prepare the item for recycling if it is recyclable. If it's not recyclable, briefly explain why or suggest alternative disposal. If the item or its recyclability is unknown, provide general good-practice recycling advice.
 
 Image to analyze: {{media url=photoDataUri}}
 
 Provide your response in the structured format defined by the output schema.
-If the image is unclear, or the item is not easily identifiable, make a best guess for itemName as "Unclear Object" or "Multiple Items", set isRecyclable to false, itemCategory to "Unknown", and provide general recycling tips as recyclingAdvice.
+If the image is unclear, or the item is not easily identifiable, make a best guess for itemName as "Objeto Indefinido" or "Vários Itens", set isRecyclable to false, itemCategory to "Desconhecido", and provide general recycling tips as recyclingAdvice.
 `,
 });
 
@@ -61,10 +62,11 @@ const detectRecyclableItemFlow = ai.defineFlow(
     // Ensure there's always a valid output, even if the LLM fails to provide one fully.
     // This guards against cases where the LLM might return null or an incomplete object.
     return output || {
-        itemName: "Error in detection",
-        itemCategory: "Unknown",
+        itemName: "Erro na detecção",
+        itemCategory: "Desconhecido",
         isRecyclable: false,
-        recyclingAdvice: "Could not process the image. Please try again with a clearer image."
+        recyclingAdvice: "Não foi possível processar a imagem. Por favor, tente novamente com uma imagem mais nítida."
     };
   }
 );
+
