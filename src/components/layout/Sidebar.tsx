@@ -1,8 +1,9 @@
+
 "use client";
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, ShoppingBag, Recycle, Info, User, Bell, History, FileText, Award, LogOut, Settings, Menu, Rocket } from 'lucide-react';
+import { Home, ShoppingBag, Recycle, Info, User, Bell, History, FileText, Award, LogOut, Settings, Menu, Rocket, Camera } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Logo, AppLixoLogoText } from '@/components/icons/Logo';
@@ -21,6 +22,7 @@ const navLinks: NavLinkItem[] = [
   { href: '/', icon: Home, label: 'Início', isMain: true },
   { href: '/request-collection', icon: ShoppingBag, label: 'Solicitar Coleta', isMain: true },
   { href: '/recycling-info', icon: Recycle, label: 'Info Reciclagem', isMain: true },
+  { href: '/detect-item', icon: Camera, label: 'Detectar Item', isMain: true },
   {
     href: '/profile', icon: User, label: 'Perfil', subItems: [
       { href: '/profile', icon: User, label: 'Minhas Informações' },
