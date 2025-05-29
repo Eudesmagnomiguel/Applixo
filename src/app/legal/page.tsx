@@ -1,3 +1,5 @@
+"use client";
+
 import { AppLayout } from '@/components/layout/AppLayout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { FileText, ShieldCheck, UserCheck, FileQuestion } from 'lucide-react';
@@ -59,8 +61,8 @@ export default function LegalPage() {
               </CardHeader>
               <CardContent className="pt-4 flex-grow flex flex-col">
                 <p className="text-sm text-muted-foreground mb-4 flex-grow">{section.summary}</p>
-                <a 
-                  href={section.contentLink} 
+                <a
+                  href={section.contentLink}
                   className="mt-auto inline-block text-sm font-medium text-primary hover:underline"
                   onClick={(e) => {e.preventDefault(); alert(`Navegando para ${section.title}... (Página de placeholder)`)}}
                 >
