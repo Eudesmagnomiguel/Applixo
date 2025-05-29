@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 
 const faqs = [
   {
-    question: "Como funciona o serviço de coleta do Luanda Recicla?",
+    question: "Como funciona o serviço de coleta do APPLIXO?",
     answer: "Você solicita a coleta através do nosso aplicativo, informa a quantidade de sacolas, escolhe o método de pagamento e agenda. Nossa equipe irá ao seu endereço no horário estimado para recolher os resíduos recicláveis."
   },
   {

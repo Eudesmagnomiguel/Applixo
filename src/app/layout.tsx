@@ -11,8 +11,8 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: 'Luanda Recicla',
-  description: 'Plataforma de reciclagem em Luanda, Angola.',
+  title: 'APPLIXO',
+  description: 'A APP LIXO é um projeto de inovação tecnológica com foco em gestão inteligente de resíduos em Angola.',
 };
 
 export default function RootLayout({

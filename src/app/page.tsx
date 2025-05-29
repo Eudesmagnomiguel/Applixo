@@ -11,9 +11,9 @@ export default function HomePage() {
       <div className="flex flex-col gap-8">
         <section className="rounded-xl bg-gradient-to-br from-primary to-secondary p-8 text-primary-foreground shadow-lg md:p-12">
           <div className="container mx-auto">
-            <h1 className="text-3xl font-bold md:text-5xl">Bem-vindo ao Luanda Recicla!</h1>
+            <h1 className="text-3xl font-bold md:text-5xl">Bem-vindo ao APPLIXO!</h1>
             <p className="mt-4 text-lg md:text-xl text-primary-foreground/90">
-              Sua plataforma completa para solicitação de coleta de resíduos e informações sobre reciclagem em Luanda. Juntos, por uma cidade mais limpa e sustentável.
+              Sua plataforma completa para gestão inteligente de resíduos em Angola. Juntos, por uma cidade mais limpa e sustentável.
             </p>
             <Button asChild size="lg" className="mt-8 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
               <Link href="/request-collection">
@@ -70,7 +70,7 @@ export default function HomePage() {
                         </CardHeader>
                         <CardContent className="p-0 mt-6">
                             <p className="mb-4">
-                                O APPLIXO, integrado ao Luanda Recicla, é mais que um serviço: é um movimento. Acreditamos no poder da comunidade para criar um impacto positivo duradouro.
+                                O APPLIXO é mais que um serviço: é um movimento. Acreditamos no poder da comunidade para criar um impacto positivo duradouro.
                             </p>
                             <Button asChild variant="outline">
                                 <Link href="/profile">

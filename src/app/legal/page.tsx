@@ -8,7 +8,7 @@ const legalSections = [
     title: "Termos e Condições de Uso",
     icon: FileText,
     lastUpdated: "01 de Julho de 2024",
-    summary: "Este documento descreve as regras para o uso do aplicativo Luanda Recicla, seus direitos e responsabilidades como usuário, e nossas obrigações como provedor do serviço. Ao utilizar o aplicativo, você concorda com estes termos.",
+    summary: "Este documento descreve as regras para o uso do aplicativo APPLIXO, seus direitos e responsabilidades como usuário, e nossas obrigações como provedor do serviço. Ao utilizar o aplicativo, você concorda com estes termos.",
     contentLink: "/legal/terms-and-conditions"
   },
   {
@@ -32,7 +32,7 @@ const legalSections = [
     title: "Aviso Legal e Responsabilidades",
     icon: FileQuestion,
     lastUpdated: "10 de Junho de 2024",
-    summary: "Este aviso detalha as limitações de responsabilidade do Luanda Recicla e as condições sob as quais o serviço é fornecido. Inclui informações sobre a precisão das informações e isenções de garantia.",
+    summary: "Este aviso detalha as limitações de responsabilidade do APPLIXO e as condições sob as quais o serviço é fornecido. Inclui informações sobre a precisão das informações e isenções de garantia.",
     contentLink: "/legal/disclaimer"
   }
 ];

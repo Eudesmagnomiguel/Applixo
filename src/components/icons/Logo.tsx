@@ -10,8 +10,8 @@ export function Logo(props: SVGProps<SVGSVGElement>) {
       aria-labelledby="logoTitle logoDesc"
       {...props}
     >
-      <title id="logoTitle">Luanda Recicla Logo</title>
-      <desc id="logoDesc">Text logo for Luanda Recicla application.</desc>
+      <title id="logoTitle">APPLIXO Logo</title>
+      <desc id="logoDesc">Text logo for APPLIXO application.</desc>
       <text
         x="10"
         y="35"
@@ -20,7 +20,7 @@ export function Logo(props: SVGProps<SVGSVGElement>) {
         fontWeight="bold"
         fill="currentColor"
       >
-        Luanda Recicla
+        APPLIXO
       </text>
     </svg>
   );
