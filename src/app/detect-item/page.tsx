@@ -80,7 +80,7 @@ export default function DetectItemPage() {
               ) : (
                 <div className="text-center text-muted-foreground p-4">
                   <Image 
-                    src="https://placehold.co/400x300.png?text=Selecione+uma+imagem" 
+                    src="https://placehold.co/400x300.png" 
                     alt="Placeholder para imagem" 
                     width={400} 
                     height={300} 
