@@ -18,10 +18,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { format } from "date-fns";
 import { ptBR } from 'date-fns/locale';
-import { ArrowLeft, ArrowRight, ShoppingBag, CreditCard, CheckCircle, XCircle, Info, CalendarClock, MapPinIcon, User, Phone, Mail, Trash2, NotebookPen, Scale, CalendarIcon, CalendarDays, Clock } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ShoppingBag, CreditCard, CheckCircle, XCircle, Info, CalendarClock, MapPinIcon, User, Phone, Mail, Trash2, NotebookPen, Scale, CalendarIcon, CalendarDays, Clock, AlertTriangle } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const STEPS = {
   DETAILS: 1,
@@ -62,7 +63,6 @@ const collectionFormSchema = z.object({
 
 type CollectionFormValues = z.infer<typeof collectionFormSchema>;
 
-// Initial values for the form state, not react-hook-form defaults
 const initialCollectionDetails: CollectionFormValues = {
   firstName: '',
   lastName: '',
@@ -99,7 +99,6 @@ export default function RequestCollectionPage() {
   };
 
   const handleNextStep = () => {
-    // This function is now primarily for STEPS.PAYMENT to STEPS.REVIEW
     if (currentStep === STEPS.PAYMENT && paymentMethod) {
       setCurrentStep(STEPS.REVIEW);
     }
@@ -115,7 +114,6 @@ export default function RequestCollectionPage() {
   
   const resetFormAndState = () => {
     setCollectionDetails(initialCollectionDetails);
-    // Reset react-hook-form fields to their initial state
     setValue('firstName', initialCollectionDetails.firstName);
     setValue('lastName', initialCollectionDetails.lastName);
     setValue('phone', initialCollectionDetails.phone);
@@ -152,11 +150,19 @@ export default function RequestCollectionPage() {
           <CardHeader className="bg-secondary/50 border-b">
             <CardTitle className="text-2xl font-bold text-primary flex items-center">
               <ShoppingBag className="mr-3 h-7 w-7" />
-              Solicitar Coleta de Resíduos
+              Solicitar Coleta de Resíduos (Plano Comercial)
             </CardTitle>
-            <CardDescription>Siga os passos para agendar sua coleta.</CardDescription>
+            <CardDescription>Siga os passos para agendar sua coleta. Precisa de um plano residencial ou personalizado? <Link href="/about-applixo#plans" className="underline text-primary hover:text-primary/80">Consulte nossos planos</Link> ou <Link href="/contact" className="underline text-primary hover:text-primary/80">fale conosco</Link>.</CardDescription>
           </CardHeader>
           <CardContent className="p-6 md:p-8">
+            <Alert variant="default" className="mb-6 bg-accent/30">
+              <Info className="h-5 w-5 text-accent-foreground" />
+              <AlertTitle className="text-accent-foreground font-semibold">Atenção: Plano Comercial</AlertTitle>
+              <AlertDescription className="text-accent-foreground/80">
+                Este formulário é para o nosso Plano Comercial, com preço de {PRICE_PER_KG.toLocaleString('pt-AO', { style: 'currency', currency: 'AOA' })} por Kg. Para o Plano Residencial ou soluções personalizadas, por favor <Link href="/contact" className="underline">entre em contato</Link>.
+              </AlertDescription>
+            </Alert>
+
             <div className="mb-6">
               <h3 className="text-xl font-semibold text-foreground">{getStepTitle()}</h3>
               <div className="mt-2 flex space-x-2">
@@ -171,7 +177,6 @@ export default function RequestCollectionPage() {
 
             {currentStep === STEPS.DETAILS && (
               <form onSubmit={handleSubmit(onSubmitDetails)} className="space-y-6">
-                {/* Personal Info */}
                 <h4 className="text-lg font-medium text-foreground border-b pb-2 mb-3">Informações Pessoais</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -201,7 +206,6 @@ export default function RequestCollectionPage() {
                   {errors.address && <p className="text-sm text-destructive mt-1">{errors.address.message}</p>}
                 </div>
 
-                {/* Scheduling */}
                 <h4 className="text-lg font-medium text-foreground border-b pb-2 mb-3 pt-4">Agendamento</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -230,7 +234,7 @@ export default function RequestCollectionPage() {
                                 onSelect={field.onChange}
                                 initialFocus
                                 locale={ptBR}
-                                disabled={(date) => date < new Date(new Date().setHours(0,0,0,0)) } // Disable past dates
+                                disabled={(date) => date < new Date(new Date().setHours(0,0,0,0)) }
                                 />
                             </PopoverContent>
                             </Popover>
@@ -258,7 +262,6 @@ export default function RequestCollectionPage() {
                   </div>
                 </div>
 
-                {/* Waste Details */}
                 <h4 className="text-lg font-medium text-foreground border-b pb-2 mb-3 pt-4">Detalhes dos Resíduos</h4>
                 <div>
                     <Label className="flex items-center mb-2"><Trash2 className="mr-2 h-4 w-4 text-primary" />Tipo de Resíduos</Label>
@@ -438,3 +441,4 @@ function StatusScreen({ icon, title, message, backLink, backLinkText, onReset }:
   );
 }
 
+  

@@ -1,7 +1,9 @@
 
 import { AppLayout } from '@/components/layout/AppLayout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Rocket, Target, Settings, Users, HardDrive, Palette, Database, Cloud, Map, UsersRound, Briefcase, Zap } from 'lucide-react';
+import { Rocket, Target, Settings, Users, HardDrive, Palette, Database, Cloud, Map, UsersRound, Briefcase, Zap, Building, HomeIcon } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function AboutAppLixoPage() {
   return (
@@ -70,10 +72,10 @@ export default function AboutAppLixoPage() {
                 </ul>
                 <p className="font-semibold mb-2 text-foreground">Tecnologia:</p>
                 <div className="space-y-2 text-sm">
-                  <div className="flex items-center text-muted-foreground"><Palette className="mr-2 h-4 w-4 text-primary" /> Frontend: React Native</div>
-                  <div className="flex items-center text-muted-foreground"><HardDrive className="mr-2 h-4 w-4 text-primary" /> Backend: Node.js / Django</div>
-                  <div className="flex items-center text-muted-foreground"><Database className="mr-2 h-4 w-4 text-primary" /> Base de Dados: PostgreSQL / Firebase</div>
-                  <div className="flex items-center text-muted-foreground"><Cloud className="mr-2 h-4 w-4 text-primary" /> Hospedagem: Netlify / AWS</div>
+                  <div className="flex items-center text-muted-foreground"><Palette className="mr-2 h-4 w-4 text-primary" /> Frontend: React Native (Conceito), Next.js/React (Atual)</div>
+                  <div className="flex items-center text-muted-foreground"><HardDrive className="mr-2 h-4 w-4 text-primary" /> Backend: Genkit (IA), Potencial Node.js / Django</div>
+                  <div className="flex items-center text-muted-foreground"><Database className="mr-2 h-4 w-4 text-primary" /> Base de Dados: PostgreSQL / Firebase (Conceito)</div>
+                  <div className="flex items-center text-muted-foreground"><Cloud className="mr-2 h-4 w-4 text-primary" /> Hospedagem: Netlify / AWS (Conceito)</div>
                 </div>
               </CardContent>
             </Card>
@@ -95,19 +97,31 @@ export default function AboutAppLixoPage() {
               </CardContent>
             </Card>
 
-            <Card className="shadow-md hover:shadow-lg transition-shadow">
+            <Card className="shadow-md hover:shadow-lg transition-shadow lg:col-span-1" id="plans"> {/* Adjusted to span 1 if needed for layout, or remove lg:col-span-3 */}
               <CardHeader>
                 <CardTitle className="text-xl text-primary flex items-center">
                   <Briefcase className="mr-2 h-6 w-6" />
-                  Modelos de Serviço
+                  Nossos Planos
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                  <li><span className="font-semibold text-foreground">Plano Residencial:</span> 350 kz/dia</li>
-                  <li><span className="font-semibold text-foreground">Plano Comercial:</span> 1300 kz/kg</li>
-                  <li>Planos personalizados com base no volume e frequência de recolha</li>
-                </ul>
+              <CardContent className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-foreground flex items-center mb-1"><HomeIcon className="mr-2 h-5 w-5 text-primary/80" />Plano Residencial</h4>
+                  <p className="text-sm text-muted-foreground">Ideal para o dia a dia da sua família. Coleta prática e programada.</p>
+                  <p className="text-sm text-muted-foreground font-semibold mt-1">Preço: 350 Kz/dia (Consulte condições)</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground flex items-center mb-1"><Building className="mr-2 h-5 w-5 text-primary/80" />Plano Comercial</h4>
+                  <p className="text-sm text-muted-foreground">Soluções para empresas de todos os portes. Gestão eficiente de resíduos comerciais.</p>
+                  <p className="text-sm text-muted-foreground font-semibold mt-1">Preço: 1300 Kz/kg (Solicite via app)</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground">Planos Personalizados</h4>
+                  <p className="text-sm text-muted-foreground">Necessidades específicas? Oferecemos planos sob medida, baseados no volume e frequência de recolha. Ideal para condomínios, eventos e grandes geradores.</p>
+                  <Button variant="outline" size="sm" className="mt-2" asChild>
+                    <Link href="/contact">Contate-nos para um orçamento</Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -124,13 +138,13 @@ export default function AboutAppLixoPage() {
                 <CardDescription className="text-base md:text-lg text-secondary-foreground/80 mb-6">
                     Faça parte da mudança para uma Luanda mais limpa e sustentável. Explore nossos serviços e contribua para um futuro melhor.
                 </CardDescription>
-                <div className="flex justify-center gap-4">
-                    <a href="/request-collection" className="px-6 py-3 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors">
-                        Solicitar Coleta
-                    </a>
-                    <a href="/recycling-info" className="px-6 py-3 bg-transparent border border-primary text-primary rounded-md font-medium hover:bg-primary/10 transition-colors">
-                        Saber Mais
-                    </a>
+                <div className="flex flex-wrap justify-center gap-4">
+                    <Button asChild className="px-6 py-3 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors">
+                        <Link href="/request-collection">Solicitar Coleta (Comercial)</Link>
+                    </Button>
+                    <Button asChild variant="outline" className="px-6 py-3 text-primary rounded-md font-medium hover:bg-primary/10 transition-colors">
+                        <Link href="/recycling-info">Saber Mais sobre Reciclagem</Link>
+                    </Button>
                 </div>
             </CardContent>
         </Card>
@@ -139,3 +153,5 @@ export default function AboutAppLixoPage() {
     </AppLayout>
   );
 }
+
+  
