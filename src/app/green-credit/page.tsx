@@ -12,13 +12,13 @@ const userGreenCredit = {
   nextTierPoints: 500,
   nextTierName: "Prata Reciclador",
   rewardsAvailable: [
-    { id: 'rew001', name: 'Desconto de 5% na próxima coleta', pointsNeeded: 100, icon: ShoppingCart },
+    { id: 'rew001', name: 'Desconto de 5% na próxima recolha', pointsNeeded: 100, icon: ShoppingCart },
     { id: 'rew002', name: 'Brinde Ecológico Surpresa', pointsNeeded: 250, icon: Gift },
     { id: 'rew003', name: 'Doação para Causa Ambiental', pointsNeeded: 500, icon: Star },
   ],
   recentActivity: [
-    { date: '15 de Julho, 2024', description: 'Coleta de 3 sacolas', points: '+50' },
-    { date: '02 de Julho, 2024', description: 'Coleta de 5 sacolas', points: '+75' },
+    { date: '15 de Julho, 2024', description: 'Recolha de 3 sacolas', points: '+50' },
+    { date: '02 de Julho, 2024', description: 'Recolha de 5 sacolas', points: '+75' },
     { date: '20 de Junho, 2024', description: 'Cadastro no programa', points: '+25' },
   ]
 };
@@ -120,10 +120,10 @@ export default function GreenCreditPage() {
             </CardHeader>
             <CardContent className="p-0 mt-2">
                 <CardDescription className="text-base text-accent-foreground/80 mb-4">
-                    Continue utilizando nossos serviços de coleta, participe de campanhas especiais e indique amigos!
+                    Continue utilizando nossos serviços de recolha, participe de campanhas especiais e indique amigos!
                 </CardDescription>
                 <Button asChild>
-                    <Link href="/request-collection">Solicitar Nova Coleta</Link>
+                    <Link href="/request-collection">Solicitar Nova Recolha</Link>
                 </Button>
             </CardContent>
         </Card>

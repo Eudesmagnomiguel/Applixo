@@ -6,10 +6,10 @@ import { Bell, CheckCircle, Info, AlertTriangle } from 'lucide-react';
 
 // Mock data for notifications
 const mockNotifications = [
-  { id: 'notif001', type: 'success', title: 'Coleta Confirmada!', message: 'Sua coleta #001 está confirmada para 16 de Julho, entre 14:00-16:00.', date: '15 de Julho, 2024', read: false },
-  { id: 'notif002', type: 'info', title: 'Novo Ponto de Coleta', message: 'Adicionamos um novo ponto de coleta de eletrônicos no Bairro Azul.', date: '14 de Julho, 2024', read: true },
+  { id: 'notif001', type: 'success', title: 'Recolha Confirmada!', message: 'Sua recolha #001 está confirmada para 16 de Julho, entre 14:00-16:00.', date: '15 de Julho, 2024', read: false },
+  { id: 'notif002', type: 'info', title: 'Novo Ponto de Recolha', message: 'Adicionamos um novo ponto de recolha de eletrônicos no Bairro Azul.', date: '14 de Julho, 2024', read: true },
   { id: 'notif003', type: 'warning', title: 'Manutenção Programada', message: 'O app estará em manutenção no dia 20 de Julho, das 02:00 às 04:00.', date: '12 de Julho, 2024', read: false },
-  { id: 'notif004', type: 'success', title: 'Créditos Verdes Adicionados', message: 'Você recebeu 50 Créditos Verdes pela sua última coleta!', date: '10 de Julho, 2024', read: true },
+  { id: 'notif004', type: 'success', title: 'Créditos Verdes Adicionados', message: 'Você recebeu 50 Créditos Verdes pela sua última recolha!', date: '10 de Julho, 2024', read: true },
 ];
 
 const getIconForType = (type: string) => {

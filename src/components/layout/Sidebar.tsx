@@ -20,13 +20,13 @@ interface NavLinkItem {
 
 const navLinks: NavLinkItem[] = [
   { href: '/', icon: Home, label: 'Início', isMain: true },
-  { href: '/request-collection', icon: ShoppingBag, label: 'Solicitar Coleta', isMain: true },
+  { href: '/request-collection', icon: ShoppingBag, label: 'Solicitar Recolha', isMain: true },
   { href: '/recycling-info', icon: Recycle, label: 'Info Reciclagem', isMain: true },
   { href: '/detect-item', icon: Camera, label: 'Detectar Resíduo', isMain: true },
   {
     href: '/profile', icon: User, label: 'Perfil', subItems: [
       { href: '/profile', icon: User, label: 'Minhas Informações' },
-      { href: '/collection-history', icon: History, label: 'Histórico de Coletas' },
+      { href: '/collection-history', icon: History, label: 'Histórico de Recolhas' },
       { href: '/notifications', icon: Bell, label: 'Notificações' },
       { href: '/green-credit', icon: Award, label: 'Crédito Verde' },
     ]

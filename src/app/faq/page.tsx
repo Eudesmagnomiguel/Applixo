@@ -6,8 +6,8 @@ import { Input } from '@/components/ui/input';
 
 const faqs = [
   {
-    question: "Como funciona o serviço de coleta do APPLIXO?",
-    answer: "Você solicita a coleta através do nosso aplicativo, informa a quantidade de sacolas, escolhe o método de pagamento e agenda. Nossa equipe irá ao seu endereço no horário estimado para recolher os resíduos recicláveis."
+    question: "Como funciona o serviço de recolha do APPLIXO?",
+    answer: "Você solicita a recolha através do nosso aplicativo, informa a quantidade de sacolas, escolhe o método de pagamento e agenda. Nossa equipe irá ao seu endereço no horário estimado para recolher os resíduos recicláveis."
   },
   {
     question: "Quais materiais são aceitos para reciclagem?",
@@ -18,20 +18,20 @@ const faqs = [
     answer: "Sim, a separação correta é fundamental. Recomendamos que você separe os materiais por tipo (plástico, papel, etc.) em sacolas diferentes. Lave as embalagens e desmonte caixas para otimizar."
   },
   {
-    question: "Qual é o custo da coleta?",
+    question: "Qual é o custo da recolha?",
     answer: "O custo varia conforme a quantidade de sacolas: 1-3 sacolas custam 1000 KZ, 4-7 sacolas custam 1800 KZ, e 8-10 sacolas custam 2000 KZ."
   },
   {
     question: "Como funciona o sistema de Crédito Verde?",
-    answer: "O Crédito Verde é um sistema de recompensas. A cada coleta bem-sucedida, você acumula pontos que podem ser trocados por benefícios ou descontos futuros. Mais detalhes serão divulgados em breve."
+    answer: "O Crédito Verde é um sistema de recompensas. A cada recolha bem-sucedida, você acumula pontos que podem ser trocados por benefícios ou descontos futuros. Mais detalhes serão divulgados em breve."
   },
   {
-    question: "O que acontece se eu não estiver em casa no horário da coleta?",
+    question: "O que acontece se eu não estiver em casa no horário da recolha?",
     answer: "Recomendamos que alguém esteja presente para entregar os resíduos. Caso não seja possível, entre em contato conosco com antecedência para reagendar ou encontrar uma solução alternativa."
   },
   {
-    question: "Posso cancelar uma coleta agendada?",
-    answer: "Sim, você pode cancelar uma coleta através do aplicativo. Consulte os termos para prazos de cancelamento sem custo."
+    question: "Posso cancelar uma recolha agendada?",
+    answer: "Sim, você pode cancelar uma recolha através do aplicativo. Consulte os termos para prazos de cancelamento sem custo."
   }
 ];
 

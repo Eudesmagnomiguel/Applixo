@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { User, MapPin, Mail, History, Bell, HelpCircle, FileText, Award, LogOut, Edit3, ShieldCheck, Gift } from 'lucide-react';
 
 const profileLinks = [
-  { href: '/collection-history', icon: History, label: 'Histórico de Coletas' },
+  { href: '/collection-history', icon: History, label: 'Histórico de Recolhas' },
   { href: '/notifications', icon: Bell, label: 'Notificações', badge: 3 },
   { href: '/green-credit', icon: Award, label: 'Crédito Verde', value: "150 Pontos" },
   { href: '/faq', icon: HelpCircle, label: 'Perguntas Frequentes' },
@@ -130,4 +130,3 @@ function InfoItem({ icon, label, value }: InfoItemProps) {
     </div>
   );
 }
-

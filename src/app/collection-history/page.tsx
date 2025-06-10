@@ -20,12 +20,12 @@ export default function CollectionHistoryPage() {
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
           <h1 className="text-3xl font-bold text-primary flex items-center">
             <History className="mr-3 h-8 w-8" />
-            Histórico de Coletas
+            Histórico de Recolhas
           </h1>
           <Button asChild>
             <Link href="/request-collection">
               <PlusCircle className="mr-2 h-5 w-5" />
-              Nova Solicitação
+              Nova Solicitação de Recolha
             </Link>
           </Button>
         </div>
@@ -34,14 +34,14 @@ export default function CollectionHistoryPage() {
           <Card className="text-center py-12 shadow-md">
             <CardHeader>
               <History className="mx-auto h-16 w-16 text-muted-foreground mb-4" />
-              <CardTitle className="text-2xl">Nenhuma coleta encontrada</CardTitle>
+              <CardTitle className="text-2xl">Nenhuma recolha encontrada</CardTitle>
             </CardHeader>
             <CardContent>
               <CardDescription className="text-base mb-6">
-                Você ainda não solicitou nenhuma coleta. Comece agora a reciclar conosco!
+                Você ainda não solicitou nenhuma recolha. Comece agora a reciclar conosco!
               </CardDescription>
               <Button asChild size="lg">
-                <Link href="/request-collection">Solicitar Coleta</Link>
+                <Link href="/request-collection">Solicitar Recolha</Link>
               </Button>
             </CardContent>
           </Card>
@@ -51,7 +51,7 @@ export default function CollectionHistoryPage() {
               <Card key={item.id} className="shadow-md hover:shadow-lg transition-shadow duration-200">
                 <CardHeader className="border-b pb-4">
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
-                    <CardTitle className="text-xl text-foreground mb-2 sm:mb-0">Coleta #{item.id.slice(-3)}</CardTitle>
+                    <CardTitle className="text-xl text-foreground mb-2 sm:mb-0">Recolha #{item.id.slice(-3)}</CardTitle>
                     <span 
                       className={`px-3 py-1 text-xs font-semibold rounded-full
                         ${item.status === 'Concluída' ? 'bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200' : ''}

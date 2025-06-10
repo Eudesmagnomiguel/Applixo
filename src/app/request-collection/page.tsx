@@ -54,8 +54,8 @@ const collectionFormSchema = z.object({
   phone: z.string().min(9, "Telefone deve ter pelo menos 9 dígitos").regex(/^\+?244[ -]?(\d[ -]?){9}$|^9[1-59][0-9]([ -]?\d){7}$|^(2\d{2})([ -]?\d){6}$/, "Formato de telefone angolano inválido"),
   email: z.string().email("Email inválido"),
   address: z.string().min(5, "Endereço é obrigatório"),
-  collectionDate: z.date({ required_error: "Data da coleta é obrigatória" }),
-  collectionTime: z.string().min(1, "Horário da coleta é obrigatório"),
+  collectionDate: z.date({ required_error: "Data da recolha é obrigatória" }),
+  collectionTime: z.string().min(1, "Horário da recolha é obrigatório"),
   wasteTypes: z.array(z.string()).min(1, "Selecione ao menos um tipo de resíduo").max(wasteTypeOptions.length),
   wasteQuantityKg: z.coerce.number().min(0.1, "Quantidade deve ser maior que 0 Kg").max(1000, "Quantidade máxima de 1000 Kg"),
   notes: z.string().optional(),
@@ -132,11 +132,11 @@ export default function RequestCollectionPage() {
 
   const getStepTitle = () => {
     switch (currentStep) {
-      case STEPS.DETAILS: return "Detalhes da Coleta";
+      case STEPS.DETAILS: return "Detalhes da Recolha";
       case STEPS.PAYMENT: return "Método de Pagamento";
       case STEPS.REVIEW: return "Revisar e Confirmar";
-      case STEPS.CONFIRMED: return "Coleta Confirmada!";
-      case STEPS.CANCELLED: return "Coleta Cancelada";
+      case STEPS.CONFIRMED: return "Recolha Confirmada!";
+      case STEPS.CANCELLED: return "Recolha Cancelada";
       default: return "";
     }
   };
@@ -150,9 +150,9 @@ export default function RequestCollectionPage() {
           <CardHeader className="bg-secondary/50 border-b">
             <CardTitle className="text-2xl font-bold text-primary flex items-center">
               <ShoppingBag className="mr-3 h-7 w-7" />
-              Solicitar Coleta de Resíduos (Plano Comercial)
+              Solicitar Recolha de Resíduos (Plano Comercial)
             </CardTitle>
-            <CardDescription>Siga os passos para agendar sua coleta. Precisa de um plano residencial ou personalizado? <Link href="/about-applixo#plans" className="underline text-primary hover:text-primary/80">Consulte nossos planos</Link> ou <Link href="/contact" className="underline text-primary hover:text-primary/80">fale conosco</Link>.</CardDescription>
+            <CardDescription>Siga os passos para agendar sua recolha. Precisa de um plano residencial ou personalizado? <Link href="/about-applixo#plans" className="underline text-primary hover:text-primary/80">Consulte nossos planos</Link> ou <Link href="/contact" className="underline text-primary hover:text-primary/80">fale conosco</Link>.</CardDescription>
           </CardHeader>
           <CardContent className="p-6 md:p-8">
             <Alert variant="default" className="mb-6 bg-accent/30">
@@ -201,7 +201,7 @@ export default function RequestCollectionPage() {
                   {errors.email && <p className="text-sm text-destructive mt-1">{errors.email.message}</p>}
                 </div>
                 <div>
-                  <Label htmlFor="address" className="flex items-center mb-1"><MapPinIcon className="mr-2 h-4 w-4 text-primary" />Endereço de Coleta</Label>
+                  <Label htmlFor="address" className="flex items-center mb-1"><MapPinIcon className="mr-2 h-4 w-4 text-primary" />Endereço de Recolha</Label>
                   <Input id="address" {...register("address")} placeholder="Ex: Rua Exemplo, Bairro Azul, Casa 123" />
                   {errors.address && <p className="text-sm text-destructive mt-1">{errors.address.message}</p>}
                 </div>
@@ -209,7 +209,7 @@ export default function RequestCollectionPage() {
                 <h4 className="text-lg font-medium text-foreground border-b pb-2 mb-3 pt-4">Agendamento</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="collectionDate" className="flex items-center mb-1"><CalendarDays className="mr-2 h-4 w-4 text-primary" />Data da Coleta</Label>
+                    <Label htmlFor="collectionDate" className="flex items-center mb-1"><CalendarDays className="mr-2 h-4 w-4 text-primary" />Data da Recolha</Label>
                     <Controller
                         name="collectionDate"
                         control={control}
@@ -243,7 +243,7 @@ export default function RequestCollectionPage() {
                     {errors.collectionDate && <p className="text-sm text-destructive mt-1">{errors.collectionDate.message}</p>}
                   </div>
                   <div>
-                    <Label htmlFor="collectionTime" className="flex items-center mb-1"><Clock className="mr-2 h-4 w-4 text-primary" />Horário da Coleta</Label>
+                    <Label htmlFor="collectionTime" className="flex items-center mb-1"><Clock className="mr-2 h-4 w-4 text-primary" />Horário da Recolha</Label>
                     <Controller
                       name="collectionTime"
                       control={control}
@@ -308,7 +308,7 @@ export default function RequestCollectionPage() {
 
             {currentStep === STEPS.PAYMENT && (
               <div className="space-y-6">
-                 <p className="text-muted-foreground">Escolha como deseja pagar pela coleta.</p>
+                 <p className="text-muted-foreground">Escolha como deseja pagar pela recolha.</p>
                 <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod} className="space-y-2">
                   <Label htmlFor="pre-pago" className="flex items-center space-x-2 border p-4 rounded-md hover:bg-accent cursor-pointer has-[:checked]:bg-accent has-[:checked]:border-primary">
                     <RadioGroupItem value="pre-pago" id="pre-pago" />
@@ -342,11 +342,11 @@ export default function RequestCollectionPage() {
                   <ReviewItem icon={<User className="h-5 w-5 text-primary" />} label="Nome Completo" value={`${collectionDetails.firstName} ${collectionDetails.lastName}`} />
                   <ReviewItem icon={<Phone className="h-5 w-5 text-primary" />} label="Telefone" value={collectionDetails.phone} />
                   <ReviewItem icon={<Mail className="h-5 w-5 text-primary" />} label="Email" value={collectionDetails.email} />
-                  <ReviewItem icon={<MapPinIcon className="h-5 w-5 text-primary" />} label="Endereço de Coleta" value={collectionDetails.address} />
+                  <ReviewItem icon={<MapPinIcon className="h-5 w-5 text-primary" />} label="Endereço de Recolha" value={collectionDetails.address} />
                   <Separator className="my-2"/>
                   <h4 className="text-md font-medium text-foreground border-b pb-1 mb-2">Agendamento e Resíduos</h4>
-                  <ReviewItem icon={<CalendarDays className="h-5 w-5 text-primary" />} label="Data da Coleta" value={collectionDetails.collectionDate ? format(collectionDetails.collectionDate, "PPP", { locale: ptBR }) : 'N/A'} />
-                  <ReviewItem icon={<Clock className="h-5 w-5 text-primary" />} label="Horário da Coleta" value={collectionDetails.collectionTime} />
+                  <ReviewItem icon={<CalendarDays className="h-5 w-5 text-primary" />} label="Data da Recolha" value={collectionDetails.collectionDate ? format(collectionDetails.collectionDate, "PPP", { locale: ptBR }) : 'N/A'} />
+                  <ReviewItem icon={<Clock className="h-5 w-5 text-primary" />} label="Horário da Recolha" value={collectionDetails.collectionTime} />
                   <ReviewItem icon={<Trash2 className="h-5 w-5 text-primary" />} label="Tipos de Resíduos" value={collectionDetails.wasteTypes.map(typeId => wasteTypeOptions.find(opt => opt.id === typeId)?.label || typeId).join(', ')} />
                   <ReviewItem icon={<Scale className="h-5 w-5 text-primary" />} label="Quantidade Estimada" value={`${collectionDetails.wasteQuantityKg} Kg`} />
                   {collectionDetails.notes && <ReviewItem icon={<NotebookPen className="h-5 w-5 text-primary" />} label="Notas Adicionais" value={collectionDetails.notes} />}
@@ -357,7 +357,7 @@ export default function RequestCollectionPage() {
                 </div>
                 <div className="mt-4 p-4 bg-accent/50 rounded-md text-sm text-accent-foreground flex items-start gap-2">
                     <Info className="h-5 w-5 mt-0.5 flex-shrink-0"/>
-                    <span>O horário é uma estimativa e pode variar. Você será notificado sobre o status da coleta. O custo final pode variar ligeiramente com base na pesagem oficial.</span>
+                    <span>O horário é uma estimativa e pode variar. Você será notificado sobre o status da recolha. O custo final pode variar ligeiramente com base na pesagem oficial.</span>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2 justify-between mt-6">
                   <Button variant="outline" onClick={handlePreviousStep}>
@@ -365,10 +365,10 @@ export default function RequestCollectionPage() {
                   </Button>
                   <div className="flex flex-col sm:flex-row gap-2">
                     <Button variant="destructive" onClick={handleCancel} className="w-full sm:w-auto">
-                      <XCircle className="mr-2 h-4 w-4" /> Cancelar Coleta
+                      <XCircle className="mr-2 h-4 w-4" /> Cancelar Recolha
                     </Button>
                     <Button onClick={handleConfirm} className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white">
-                      <CheckCircle className="mr-2 h-4 w-4" /> Confirmar Coleta
+                      <CheckCircle className="mr-2 h-4 w-4" /> Confirmar Recolha
                     </Button>
                   </div>
                 </div>
@@ -378,14 +378,14 @@ export default function RequestCollectionPage() {
             {(currentStep === STEPS.CONFIRMED || currentStep === STEPS.CANCELLED) && (
               <StatusScreen
                 icon={currentStep === STEPS.CONFIRMED ? <CheckCircle className="h-16 w-16 text-green-500" /> : <XCircle className="h-16 w-16 text-destructive" />}
-                title={currentStep === STEPS.CONFIRMED ? "Coleta Confirmada!" : "Coleta Cancelada"}
+                title={currentStep === STEPS.CONFIRMED ? "Recolha Confirmada!" : "Recolha Cancelada"}
                 message={
                   currentStep === STEPS.CONFIRMED 
-                  ? `Obrigado! Sua coleta de ${collectionDetails.wasteQuantityKg} Kg foi confirmada para ${collectionDetails.collectionDate ? format(collectionDetails.collectionDate, "PPP", { locale: ptBR }) : ''} às ${collectionDetails.collectionTime}. Horário de chegada estimado: ${estimatedTime}.`
-                  : "Sua solicitação de coleta foi cancelada. Você pode solicitar uma nova coleta a qualquer momento."
+                  ? `Obrigado! Sua recolha de ${collectionDetails.wasteQuantityKg} Kg foi confirmada para ${collectionDetails.collectionDate ? format(collectionDetails.collectionDate, "PPP", { locale: ptBR }) : ''} às ${collectionDetails.collectionTime}. Horário de chegada estimado: ${estimatedTime}.`
+                  : "Sua solicitação de recolha foi cancelada. Você pode solicitar uma nova recolha a qualquer momento."
                 }
                 backLink={currentStep === STEPS.CONFIRMED ? "/" : "/request-collection"}
-                backLinkText={currentStep === STEPS.CONFIRMED ? "Voltar ao Início" : "Solicitar Nova Coleta"}
+                backLinkText={currentStep === STEPS.CONFIRMED ? "Voltar ao Início" : "Solicitar Nova Recolha"}
                 onReset={currentStep === STEPS.CANCELLED ? resetFormAndState : undefined}
               />
             )}
@@ -432,7 +432,7 @@ function StatusScreen({ icon, title, message, backLink, backLinkText, onReset }:
           <Link href={backLink}>{backLinkText}</Link>
         </Button>
       )}
-       {title === "Coleta Confirmada!" && (
+       {title === "Recolha Confirmada!" && (
         <Button asChild variant="outline" size="lg" className="mt-4 ml-0 sm:ml-4">
           <Link href="/collection-history">Ver Histórico</Link>
         </Button>
@@ -440,5 +440,3 @@ function StatusScreen({ icon, title, message, backLink, backLinkText, onReset }:
     </div>
   );
 }
-
-  

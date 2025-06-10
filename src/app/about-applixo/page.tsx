@@ -107,7 +107,7 @@ export default function AboutAppLixoPage() {
               <CardContent className="space-y-4">
                 <div>
                   <h4 className="font-semibold text-foreground flex items-center mb-1"><HomeIcon className="mr-2 h-5 w-5 text-primary/80" />Plano Residencial</h4>
-                  <p className="text-sm text-muted-foreground">Ideal para o dia a dia da sua família. Coleta prática e programada.</p>
+                  <p className="text-sm text-muted-foreground">Ideal para o dia a dia da sua família. Recolha prática e programada.</p>
                   <p className="text-sm text-muted-foreground font-semibold mt-1">Preço: 350 Kz/dia (Consulte condições)</p>
                 </div>
                 <div>
@@ -140,7 +140,7 @@ export default function AboutAppLixoPage() {
                 </CardDescription>
                 <div className="flex flex-wrap justify-center gap-4">
                     <Button asChild className="px-6 py-3 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors">
-                        <Link href="/request-collection">Solicitar Coleta (Comercial)</Link>
+                        <Link href="/request-collection">Solicitar Recolha (Comercial)</Link>
                     </Button>
                     <Button asChild variant="outline" className="px-6 py-3 text-primary rounded-md font-medium hover:bg-primary/10 transition-colors">
                         <Link href="/recycling-info">Saber Mais sobre Reciclagem</Link>
@@ -153,5 +153,3 @@ export default function AboutAppLixoPage() {
     </AppLayout>
   );
 }
-
-  

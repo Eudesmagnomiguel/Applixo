@@ -17,7 +17,7 @@ export default function HomePage() {
             </p>
             <Button asChild size="lg" className="mt-8 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
               <Link href="/request-collection">
-                Solicitar Coleta Agora
+                Solicitar Recolha Agora
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -27,10 +27,10 @@ export default function HomePage() {
         <section className="container mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <FeatureCard
             icon={<ShoppingBag className="h-10 w-10 text-primary" />}
-            title="Solicitação Fácil de Coleta"
-            description="Agende a coleta dos seus recicláveis em poucos cliques. Simples, rápido e eficiente."
+            title="Solicitação Fácil de Recolha"
+            description="Agende a recolha dos seus recicláveis em poucos cliques. Simples, rápido e eficiente."
             link="/request-collection"
-            linkText="Solicitar Coleta"
+            linkText="Solicitar Recolha"
           />
           <FeatureCard
             icon={<Recycle className="h-10 w-10 text-primary" />}
