@@ -80,12 +80,12 @@ export default function DetectItemPage() {
               ) : (
                 <div className="text-center text-muted-foreground p-4">
                   <Image 
-                    src="https://placehold.co/400x300.png" 
-                    alt="Placeholder para imagem" 
-                    width={400} 
-                    height={300} 
-                    className="object-contain opacity-50"
-                    data-ai-hint="placeholder image" 
+                    src="https://picsum.photos/800/600" 
+                    alt="Placeholder de imagem para detecção de resíduo" 
+                    width={800} 
+                    height={600} 
+                    className="object-contain opacity-50 max-h-[300px] w-auto"
+                    data-ai-hint="placeholder item" 
                   />
                   <p className="mt-2 text-sm">A pré-visualização aparecerá aqui.</p>
                 </div>
