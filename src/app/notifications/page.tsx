@@ -1,3 +1,4 @@
+
 import { AppLayout } from '@/components/layout/AppLayout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -44,7 +45,7 @@ export default function NotificationsPage() {
                 Você não tem nenhuma notificação no momento.
               </CardDescription>
               <Button asChild size="lg">
-                <Link href="/">Voltar ao Início</Link>
+                <Link href="/dashboard">Voltar ao Início</Link> {/* Updated link */}
               </Button>
             </CardContent>
           </Card>

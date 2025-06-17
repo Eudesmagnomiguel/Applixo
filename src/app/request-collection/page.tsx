@@ -33,7 +33,7 @@ const STEPS = {
 };
 
 const PRICE_PER_KG = 1300;
-const USER_DEFAULT_ADDRESS = "Zango 8000, Viana, Luanda"; 
+const USER_DEFAULT_ADDRESS = "Zango 8000, Viana, Luanda";
 
 const timeSlots = [
   "09:00 - 10:00", "10:00 - 11:00", "11:00 - 12:00",
@@ -111,7 +111,7 @@ export default function RequestCollectionPage() {
 
   const handleConfirm = () => setCurrentStep(STEPS.CONFIRMED);
   const handleCancel = () => setCurrentStep(STEPS.CANCELLED);
-  
+
   const resetFormAndState = () => {
     setCollectionDetails(initialCollectionDetails);
     setValue('firstName', initialCollectionDetails.firstName);
@@ -124,7 +124,7 @@ export default function RequestCollectionPage() {
     setValue('wasteTypes', initialCollectionDetails.wasteTypes);
     setValue('wasteQuantityKg', initialCollectionDetails.wasteQuantityKg);
     setValue('notes', initialCollectionDetails.notes);
-    
+
     setPaymentMethod(undefined);
     setCurrentStep(STEPS.DETAILS);
   };
@@ -140,7 +140,7 @@ export default function RequestCollectionPage() {
       default: return "";
     }
   };
-  
+
   const estimatedTime = collectionDetails.collectionTime ? `Agendado para ${collectionDetails.collectionTime}` : "A definir";
 
   return (
@@ -299,7 +299,7 @@ export default function RequestCollectionPage() {
                   <Textarea id="notes" {...register("notes")} placeholder="Ex: Deixar na portaria, resíduos frágeis, etc." />
                   {errors.notes && <p className="text-sm text-destructive mt-1">{errors.notes.message}</p>}
                 </div>
-                
+
                 <Button type="submit" className="w-full mt-6">
                   Próximo <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -380,11 +380,11 @@ export default function RequestCollectionPage() {
                 icon={currentStep === STEPS.CONFIRMED ? <CheckCircle className="h-16 w-16 text-green-500" /> : <XCircle className="h-16 w-16 text-destructive" />}
                 title={currentStep === STEPS.CONFIRMED ? "Recolha Confirmada!" : "Recolha Cancelada"}
                 message={
-                  currentStep === STEPS.CONFIRMED 
+                  currentStep === STEPS.CONFIRMED
                   ? `Obrigado! Sua recolha de ${collectionDetails.wasteQuantityKg} Kg foi confirmada para ${collectionDetails.collectionDate ? format(collectionDetails.collectionDate, "PPP", { locale: ptBR }) : ''} às ${collectionDetails.collectionTime}. Horário de chegada estimado: ${estimatedTime}.`
                   : "Sua solicitação de recolha foi cancelada. Você pode solicitar uma nova recolha a qualquer momento."
                 }
-                backLink={currentStep === STEPS.CONFIRMED ? "/" : "/request-collection"}
+                backLink={currentStep === STEPS.CONFIRMED ? "/dashboard" : "/request-collection"} // Updated backLink for confirmed
                 backLinkText={currentStep === STEPS.CONFIRMED ? "Voltar ao Início" : "Solicitar Nova Recolha"}
                 onReset={currentStep === STEPS.CANCELLED ? resetFormAndState : undefined}
               />

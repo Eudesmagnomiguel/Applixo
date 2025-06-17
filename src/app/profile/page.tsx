@@ -30,7 +30,7 @@ export default function ProfilePage() {
   const router = useRouter();
 
   const handleLogout = () => {
-    router.push('/login');
+    router.push('/'); // Redirect to the new login page (root)
   };
 
   return (
@@ -61,7 +61,7 @@ export default function ProfilePage() {
                 <InfoItem icon={<Mail className="h-5 w-5 text-primary" />} label="Email" value={userData.email} />
                 <InfoItem icon={<MapPin className="h-5 w-5 text-primary" />} label="Endereço Principal" value={userData.address} />
               </InfoSection>
-              
+
               <InfoSection title="Segurança">
                  <InfoItem icon={<ShieldCheck className="h-5 w-5 text-primary" />} label="Verificação de Email" value="Verificado" />
                  <Button variant="link" className="p-0 h-auto text-primary">Alterar Senha</Button>
@@ -140,4 +140,3 @@ function InfoItem({ icon, label, value }: InfoItemProps) {
     </div>
   );
 }
-

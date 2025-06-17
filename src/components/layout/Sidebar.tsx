@@ -24,12 +24,12 @@ export function NavLinks({ isMobile = false, onLinkClick }: NavLinksProps) {
   const router = useRouter();
 
   const handleLogout = () => {
-    router.push('/login');
+    router.push('/'); // Redirect to the new login page (root)
     if (onLinkClick) onLinkClick();
   };
-  
+
   const navLinks: NavLinkItem[] = [
-    { href: '/', icon: Home, label: 'Início', isMain: true },
+    { href: '/dashboard', icon: Home, label: 'Início', isMain: true }, // Updated link
     { href: '/request-collection', icon: ShoppingBag, label: 'Solicitar Recolha', isMain: true },
     { href: '/recycling-info', icon: Recycle, label: 'Info Reciclagem', isMain: true },
     { href: '/detect-item', icon: Camera, label: 'Detectar Resíduo', isMain: true },
@@ -77,7 +77,7 @@ export function NavLinks({ isMobile = false, onLinkClick }: NavLinksProps) {
       )}
     </Button>
   );
-  
+
   return (
     <div className={cn("flex flex-col gap-1 px-2 h-full", isMobile ? "gap-2 px-4" : "")}>
       <div className="flex-grow">
@@ -85,9 +85,9 @@ export function NavLinks({ isMobile = false, onLinkClick }: NavLinksProps) {
           item.subItems ? (
             <Accordion type="single" collapsible className="w-full" key={item.label} defaultValue={item.subItems.some(sub => pathname === sub.href) || pathname === item.href ? item.label : undefined}>
               <AccordionItem value={item.label} className="border-none">
-                <AccordionTrigger 
+                <AccordionTrigger
                   className={cn(
-                    "py-0 hover:no-underline rounded-md text-sm", 
+                    "py-0 hover:no-underline rounded-md text-sm",
                     isMobile ? "text-base py-3" : "h-10",
                     (pathname.startsWith(item.href) && item.href !== '#') || item.subItems.some(sub => pathname === sub.href) ? "bg-sidebar-accent text-sidebar-accent-foreground hover:bg-sidebar-accent/90" : "hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground",
                     " [&[data-state=open]>svg]:text-sidebar-accent-foreground"
@@ -122,9 +122,7 @@ export function NavLinks({ isMobile = false, onLinkClick }: NavLinksProps) {
             </Button>
           </div>
         ) : ( // In desktop, it's outside the scroll area if ScrollArea wraps only navLinks
-            // If NavLinks is meant to be full height and ScrollArea is inside Sidebar directly, this structure is fine.
-            // For now, assuming NavLinks itself handles its height and logout is part of it.
-            <div className="mt-auto pb-2"> 
+            <div className="mt-auto pb-2">
                 <Button
                     variant="ghost"
                     className="w-full justify-start text-sm h-10 hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground"
@@ -149,11 +147,11 @@ export function Sidebar() {
   return (
     <aside className="hidden md:flex fixed inset-y-0 left-0 z-40 h-screen w-64 flex-col border-r bg-sidebar text-sidebar-foreground shadow-lg">
       <div className="flex h-16 items-center border-b border-sidebar-border px-6">
-        <Link href="/" className="flex items-center gap-2 font-semibold text-sidebar-primary-foreground">
+        <Link href="/dashboard" className="flex items-center gap-2 font-semibold text-sidebar-primary-foreground"> {/* Updated link */}
           <Logo className="h-8 w-auto" />
         </Link>
       </div>
-      <ScrollArea className="flex-1 py-2"> {/* Changed py-4 to py-2 to give a bit more space if needed */}
+      <ScrollArea className="flex-1 py-2">
         <NavLinks />
       </ScrollArea>
        <div className="p-4 border-t border-sidebar-border">
@@ -162,4 +160,3 @@ export function Sidebar() {
     </aside>
   );
 }
-

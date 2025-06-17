@@ -23,7 +23,7 @@ export function Header() {
   const router = useRouter();
 
   const handleLogout = () => {
-    router.push('/login');
+    router.push('/'); // Redirect to the new login page (root)
   };
 
   return (
@@ -38,7 +38,7 @@ export function Header() {
           </SheetTrigger>
           <SheetContent side="left" className="flex flex-col p-0">
             <div className="flex h-16 items-center border-b px-6">
-              <Link href="/" className="flex items-center gap-2 font-semibold">
+              <Link href="/dashboard" className="flex items-center gap-2 font-semibold">
                 <Logo className="h-6 w-auto text-primary" />
               </Link>
             </div>
@@ -50,7 +50,7 @@ export function Header() {
       </div>
 
       <div className="hidden md:flex items-center gap-2">
-         <Link href="/" className="flex items-center gap-2">
+         <Link href="/dashboard" className="flex items-center gap-2">
             <Logo className="h-8 w-auto text-primary" />
          </Link>
       </div>
@@ -96,4 +96,3 @@ export function Header() {
     </header>
   );
 }
-
