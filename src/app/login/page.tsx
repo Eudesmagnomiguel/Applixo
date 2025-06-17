@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label'; 
 import Link from 'next/link';
 import { KeyRound, Mail, ArrowRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const GoogleIcon = () => (
   <svg viewBox="0 0 48 48" width="20px" height="20px" className="mr-2">
@@ -19,13 +20,17 @@ const GoogleIcon = () => (
 );
 
 export default function LoginPage() {
+  const router = useRouter();
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    alert('Tentativa de login com email e senha!');
+    // Simulate successful login by redirecting to home page
+    router.push('/'); 
   };
 
   const handleGoogleLogin = () => {
-    alert('Tentativa de login com Google!');
+    // Simulate successful Google login by redirecting to home page
+    router.push('/');
   };
 
   return (
