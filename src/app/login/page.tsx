@@ -67,7 +67,7 @@ export default function LoginPage() {
                     required
                     className="h-12 w-full rounded-md border-input bg-background/80 pl-10 pr-3 text-base placeholder:text-muted-foreground/80"
                     placeholder="seu@email.com"
-                    defaultValue="user@example.com"
+                    defaultValue="admin@applixo.com"
                   />
                 </div>
               </div>
@@ -88,7 +88,7 @@ export default function LoginPage() {
                         required
                         className="h-12 w-full rounded-md border-input bg-background/80 pl-10 pr-3 text-base placeholder:text-muted-foreground/80"
                         placeholder="Sua senha"
-                        defaultValue="password123"
+                        defaultValue="applixo123"
                     />
                 </div>
                 <div className="mt-2 text-right text-sm">
@@ -149,4 +149,3 @@ export default function LoginPage() {
     </div>
   );
 }
-
