@@ -19,7 +19,7 @@ import { NavLinks } from './Sidebar';
 import { useRouter } from 'next/navigation';
 
 export function Header() {
-  const userInitials = "AK"; // António Kaionda
+  const userInitials = "AK"; 
   const router = useRouter();
 
   const handleLogout = () => {
@@ -40,6 +40,7 @@ export function Header() {
             <div className="flex h-16 items-center border-b px-6">
               <Link href="/dashboard" className="flex items-center gap-2 font-semibold">
                 <Logo containerSize={24} />
+                <span className="text-lg font-semibold text-foreground">APPLIXO</span>
               </Link>
             </div>
             <nav className="flex-1 overflow-auto py-4">
@@ -50,8 +51,9 @@ export function Header() {
       </div>
 
       <div className="hidden md:flex items-center gap-2">
-         <Link href="/dashboard" className="flex items-center gap-2">
+         <Link href="/dashboard" className="flex items-center gap-2 font-semibold">
             <Logo containerSize={32} />
+            <span className="text-xl font-semibold text-foreground">APPLIXO</span>
          </Link>
       </div>
 
@@ -96,3 +98,4 @@ export function Header() {
     </header>
   );
 }
+

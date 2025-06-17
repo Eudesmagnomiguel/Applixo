@@ -149,6 +149,7 @@ export function Sidebar() {
       <div className="flex h-16 items-center border-b border-sidebar-border px-6">
         <Link href="/dashboard" className="flex items-center gap-2 font-semibold text-sidebar-primary-foreground">
           <Logo containerSize={32} />
+          <span className="text-xl font-semibold">APPLIXO</span>
         </Link>
       </div>
       <ScrollArea className="flex-1 py-2">
@@ -160,3 +161,4 @@ export function Sidebar() {
     </aside>
   );
 }
+
