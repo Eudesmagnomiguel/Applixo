@@ -66,16 +66,6 @@ export default function DashboardPage(props: DashboardPageProps) {
                             className="h-full w-full object-cover"
                             data-ai-hint="recycling bins"
                         />
-                        <div className="text-center mt-1 p-1">
-                            <a
-                                href="https://www.vecteezy.com/video/60273463-garbage-sorting-bins-with-flying-waste-icons"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-xs text-muted-foreground hover:underline"
-                            >
-                                garbage-sorting-bins-with-flying-waste-icons Stock Videos by Vecteezy
-                            </a>
-                        </div>
                     </div>
                     <div className="md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
                         <CardHeader className="p-0">
@@ -130,4 +120,3 @@ function FeatureCard({ icon, title, description, link, linkText }: FeatureCardPr
     </Card>
   );
 }
-
