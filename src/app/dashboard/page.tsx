@@ -15,7 +15,7 @@ export default function DashboardPage(props: DashboardPageProps) {
   return (
     <AppLayout>
       <div className="flex flex-col gap-8">
-        <section className="rounded-xl bg-gradient-to-br from-primary to-secondary p-8 text-primary-foreground shadow-lg md:p-12">
+        <section className="rounded-xl bg-primary p-8 text-primary-foreground shadow-lg md:p-12">
           <div className="container mx-auto">
             <h1 className="text-3xl font-bold md:text-5xl">Bem-vindo ao APPLIXO!</h1>
             <p className="mt-4 text-lg md:text-xl text-primary-foreground/90">
