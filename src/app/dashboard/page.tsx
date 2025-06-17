@@ -59,12 +59,12 @@ export default function DashboardPage(props: DashboardPageProps) {
                 <div className="md:flex">
                     <div className="md:w-1/2">
                         <Image
-                            src="https://picsum.photos/seed/recyclingcommunity/800/600"
-                            alt="Comunidade engajada na reciclagem"
+                            src="https://placehold.co/800x600.png"
+                            alt="Lixo separado para reciclagem"
                             width={800}
                             height={600}
                             className="h-full w-full object-cover"
-                            data-ai-hint="recycling community"
+                            data-ai-hint="trash recycling"
                         />
                     </div>
                     <div className="md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
