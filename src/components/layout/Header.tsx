@@ -23,7 +23,7 @@ export function Header() {
   const router = useRouter();
 
   const handleLogout = () => {
-    router.push('/'); // Redirect to the new login page (root)
+    router.push('/'); 
   };
 
   return (
@@ -39,7 +39,7 @@ export function Header() {
           <SheetContent side="left" className="flex flex-col p-0">
             <div className="flex h-16 items-center border-b px-6">
               <Link href="/dashboard" className="flex items-center gap-2 font-semibold">
-                <Logo className="h-6 w-auto text-primary" />
+                <Logo containerSize={24} />
               </Link>
             </div>
             <nav className="flex-1 overflow-auto py-4">
@@ -51,7 +51,7 @@ export function Header() {
 
       <div className="hidden md:flex items-center gap-2">
          <Link href="/dashboard" className="flex items-center gap-2">
-            <Logo className="h-8 w-auto text-primary" />
+            <Logo containerSize={32} />
          </Link>
       </div>
 

@@ -1,28 +1,29 @@
-import type { SVGProps } from 'react';
+import type { HTMLAttributes } from 'react';
+import { Recycle } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-export function Logo(props: SVGProps<SVGSVGElement>) {
+interface LogoProps extends HTMLAttributes<HTMLDivElement> {
+  /** The desired width and height of the circular logo container in pixels. */
+  containerSize?: number;
+}
+
+export function Logo({ containerSize = 30, className, ...props }: LogoProps) {
+  // Calculate icon size to fit within the container with some padding
+  // Aim for icon to be about 70-75% of container size
+  const iconSize = Math.round(containerSize * 0.70);
+
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 200 50"
-      width="120"
-      height="30"
-      aria-labelledby="logoTitle logoDesc"
+    <div
+      className={cn(
+        "rounded-full flex items-center justify-center bg-primary shrink-0", // Added shrink-0
+        className
+      )}
+      style={{ width: containerSize, height: containerSize }}
+      aria-label="APPLIXO Logo"
       {...props}
     >
-      <title id="logoTitle">APPLIXO Logo</title>
-      <desc id="logoDesc">Text logo for APPLIXO application.</desc>
-      <text
-        x="10"
-        y="35"
-        fontFamily="var(--font-roboto), Arial, sans-serif"
-        fontSize="28"
-        fontWeight="bold"
-        fill="currentColor"
-      >
-        APPLIXO
-      </text>
-    </svg>
+      <Recycle color="hsl(var(--primary-foreground))" size={iconSize} strokeWidth={2.5} />
+    </div>
   );
 }
 

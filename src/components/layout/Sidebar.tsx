@@ -24,12 +24,12 @@ export function NavLinks({ isMobile = false, onLinkClick }: NavLinksProps) {
   const router = useRouter();
 
   const handleLogout = () => {
-    router.push('/'); // Redirect to the new login page (root)
+    router.push('/'); 
     if (onLinkClick) onLinkClick();
   };
 
   const navLinks: NavLinkItem[] = [
-    { href: '/dashboard', icon: Home, label: 'Início', isMain: true }, // Updated link
+    { href: '/dashboard', icon: Home, label: 'Início', isMain: true }, 
     { href: '/request-collection', icon: ShoppingBag, label: 'Solicitar Recolha', isMain: true },
     { href: '/recycling-info', icon: Recycle, label: 'Info Reciclagem', isMain: true },
     { href: '/detect-item', icon: Camera, label: 'Detectar Resíduo', isMain: true },
@@ -110,7 +110,7 @@ export function NavLinks({ isMobile = false, onLinkClick }: NavLinksProps) {
           )
         )}
       </div>
-      {isMobile ? ( // In mobile, put logout inside the scrollable area, but at the bottom
+      {isMobile ? ( 
           <div className="mt-auto py-2">
              <Button
                 variant="ghost"
@@ -121,7 +121,7 @@ export function NavLinks({ isMobile = false, onLinkClick }: NavLinksProps) {
                 Sair
             </Button>
           </div>
-        ) : ( // In desktop, it's outside the scroll area if ScrollArea wraps only navLinks
+        ) : ( 
             <div className="mt-auto pb-2">
                 <Button
                     variant="ghost"
@@ -147,8 +147,8 @@ export function Sidebar() {
   return (
     <aside className="hidden md:flex fixed inset-y-0 left-0 z-40 h-screen w-64 flex-col border-r bg-sidebar text-sidebar-foreground shadow-lg">
       <div className="flex h-16 items-center border-b border-sidebar-border px-6">
-        <Link href="/dashboard" className="flex items-center gap-2 font-semibold text-sidebar-primary-foreground"> {/* Updated link */}
-          <Logo className="h-8 w-auto" />
+        <Link href="/dashboard" className="flex items-center gap-2 font-semibold text-sidebar-primary-foreground">
+          <Logo containerSize={32} />
         </Link>
       </div>
       <ScrollArea className="flex-1 py-2">
