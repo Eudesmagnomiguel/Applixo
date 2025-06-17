@@ -42,13 +42,13 @@
     --chart-5: 340 75% 50%;
 
     /* Sidebar specific colors */
-    --sidebar-background: 142 66% 45%; /* Updated to primary green #27C15E */
-    --sidebar-foreground: 355.7 100% 97.3%; /* Updated to light text for contrast */
+    --sidebar-background: 142 66% 45%; 
+    --sidebar-foreground: 355.7 100% 97.3%; 
     --sidebar-primary: 142 66% 45%; 
     --sidebar-primary-foreground: 355.7 100% 97.3%; 
     --sidebar-accent: 87 61% 65%; /* #B0DD6D */
-    --sidebar-accent-foreground: 222.2 84% 4.9%; /* Dark text for contrast */
-    --sidebar-border: var(--border); 
+    --sidebar-accent-foreground: 222.2 84% 4.9%; 
+    --sidebar-border: 93 58% 64%; /* #9ED96D */
     --sidebar-ring: 142 66% 45%; 
   }
 
@@ -89,13 +89,13 @@
     --chart-5: 340 75% 60%;
 
      /* Sidebar specific colors for dark mode */
-    --sidebar-background: 142 60% 50%; /* Updated to dark primary green */
-    --sidebar-foreground: 355.7 100% 98%; /* Updated to light text for contrast */
+    --sidebar-background: 142 60% 50%; 
+    --sidebar-foreground: 355.7 100% 98%; 
     --sidebar-primary: 142 60% 50%; 
     --sidebar-primary-foreground: 355.7 100% 98%;
-    --sidebar-accent: 87 50% 25%; /* Darker #B0DD6D */
-    --sidebar-accent-foreground: 87 50% 85%; /* Light text for contrast */
-    --sidebar-border: var(--border);
+    --sidebar-accent: 87 50% 25%; 
+    --sidebar-accent-foreground: 87 50% 85%; 
+    --sidebar-border: 93 40% 40%; /* Darker variant of #9ED96D */
     --sidebar-ring: 142 60% 50%;
   }
 }
