@@ -13,17 +13,17 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 142 66% 45%; /* New: #27C15E */
-    --primary-foreground: 355.7 100% 97.3%; /* Light text on new primary */
+    --primary: 142 66% 45%; /* #27C15E */
+    --primary-foreground: 355.7 100% 97.3%; 
 
-    --secondary: 87 61% 65%; /* New: #B0DD6D */
-    --secondary-foreground: 222.2 84% 4.9%; /* Dark text on light secondary */
+    --secondary: 87 61% 65%; /* #B0DD6D */
+    --secondary-foreground: 222.2 84% 4.9%; 
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
     --accent: 158 51% 34%; /* PRD Accent: #2b8565 */
-    --accent-foreground: 355.7 100% 97.3%; /* Light text on dark accent */
+    --accent-foreground: 355.7 100% 97.3%; 
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -42,14 +42,14 @@
     --chart-5: 340 75% 50%;
 
     /* Sidebar specific colors */
-    --sidebar-background: 220 15% 15%; /* Darker background for sidebar */
-    --sidebar-foreground: 210 40% 98%; /* Light text on dark sidebar */
-    --sidebar-primary: 142 66% 45%; /* Matches new primary */
-    --sidebar-primary-foreground: 355.7 100% 97.3%;
-    --sidebar-accent: 220 15% 25%; /* Slightly lighter accent for hover/active */
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 15% 20%; /* Border color for sidebar elements */
-    --sidebar-ring: 142 66% 45%; /* Matches new primary */
+    --sidebar-background: 142 66% 45%; /* Updated to primary green */
+    --sidebar-foreground: 355.7 100% 97.3%; /* Updated to light text for contrast */
+    --sidebar-primary: 142 66% 45%; /* Matches new primary - used for logo if directly colored */
+    --sidebar-primary-foreground: 355.7 100% 97.3%; /* Light text for logo */
+    --sidebar-accent: 220 15% 25%; /* Darker accent for hover/active on green bg */
+    --sidebar-accent-foreground: 210 40% 98%; /* Light text on dark accent */
+    --sidebar-border: 220 15% 20%; 
+    --sidebar-ring: 142 66% 45%; 
   }
 
   .dark {
@@ -62,24 +62,24 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 142 60% 50%; /* Dark mode version of #27C15E */
+    --primary: 142 60% 50%; 
     --primary-foreground: 355.7 100% 97.3%;
 
-    --secondary: 87 50% 25%; /* Dark mode version of #B0DD6D */
-    --secondary-foreground: 87 50% 85%; /* Light text for dark secondary */
+    --secondary: 87 50% 25%; 
+    --secondary-foreground: 87 50% 85%; 
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 158 45% 40%; /* Dark mode version of #2b8565 */
-    --accent-foreground: 210 40% 98%; /* Default dark foreground for dark accent */
+    --accent: 158 45% 40%; 
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 142 60% 50%; /* Ring color matches new dark primary */
+    --ring: 142 60% 50%; 
 
     /* Chart colors for dark mode */
     --chart-1: 220 70% 60%;
@@ -89,14 +89,14 @@
     --chart-5: 340 75% 60%;
 
      /* Sidebar specific colors for dark mode */
-    --sidebar-background: 220 15% 10%; /* Even darker for dark mode sidebar */
-    --sidebar-foreground: 210 40% 90%;
-    --sidebar-primary: 142 60% 50%; /* Matches new dark primary */
+    --sidebar-background: 142 60% 50%; /* Updated to dark primary green */
+    --sidebar-foreground: 355.7 100% 98%; /* Updated to light text for contrast */
+    --sidebar-primary: 142 60% 50%; 
     --sidebar-primary-foreground: 355.7 100% 98%;
     --sidebar-accent: 220 15% 20%;
     --sidebar-accent-foreground: 210 40% 92%;
     --sidebar-border: 220 15% 15%;
-    --sidebar-ring: 142 60% 50%; /* Matches new dark primary */
+    --sidebar-ring: 142 60% 50%;
   }
 }
 
