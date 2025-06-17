@@ -6,8 +6,10 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
-import { KeyRound, Mail, ArrowRight, Info } from 'lucide-react';
+import { KeyRound, Mail, ArrowRight, Info, AlertCircle } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const GoogleIcon = () => (
   <svg viewBox="0 0 48 48" width="20px" height="20px" className="mr-2">
@@ -19,13 +21,24 @@ const GoogleIcon = () => (
   </svg>
 );
 
+const DEFAULT_EMAIL = "admin@applixo.com";
+const DEFAULT_PASSWORD = "applixo123";
+
 export default function LoginPage() {
   const router = useRouter();
+  const [email, setEmail] = useState(DEFAULT_EMAIL);
+  const [password, setPassword] = useState(DEFAULT_PASSWORD);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Simulate successful login by redirecting to dashboard page
-    router.push('/dashboard');
+    setError(null); // Clear previous errors
+
+    if (email === DEFAULT_EMAIL && password === DEFAULT_PASSWORD) {
+      router.push('/dashboard');
+    } else {
+      setError("Email ou senha inválidos. Por favor, tente novamente.");
+    }
   };
 
   const handleGoogleLogin = () => {
@@ -50,6 +63,14 @@ export default function LoginPage() {
               </p>
             </div>
 
+            {error && (
+              <Alert variant="destructive">
+                <AlertCircle className="h-4 w-4" />
+                <AlertTitle>Erro de Autenticação</AlertTitle>
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Label htmlFor="email" className="sr-only">
@@ -67,7 +88,8 @@ export default function LoginPage() {
                     required
                     className="h-12 w-full rounded-md border-input bg-background/80 pl-10 pr-3 text-base placeholder:text-muted-foreground/80"
                     placeholder="seu@email.com"
-                    defaultValue="admin@applixo.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
               </div>
@@ -88,7 +110,8 @@ export default function LoginPage() {
                         required
                         className="h-12 w-full rounded-md border-input bg-background/80 pl-10 pr-3 text-base placeholder:text-muted-foreground/80"
                         placeholder="Sua senha"
-                        defaultValue="applixo123"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
                 <div className="mt-2 text-right text-sm">
@@ -109,7 +132,7 @@ export default function LoginPage() {
 
             <div className="text-xs text-muted-foreground text-center flex items-center justify-center">
               <Info className="h-4 w-4 mr-1.5 text-primary/70" />
-              <span>Para fins de demonstração, clique em "Entrar".</span>
+              <span>Conta padrão: admin@applixo.com / applixo123</span>
             </div>
 
 
