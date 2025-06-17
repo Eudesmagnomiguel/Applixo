@@ -80,10 +80,10 @@ export default function DetectItemPage() {
               ) : (
                 <div className="text-center text-muted-foreground p-4">
                   <Image 
-                    src="https://picsum.photos/800/600" 
+                    src="https://fastly.picsum.photos/id/634/2200/1467.jpg?hmac=Zj-RGFYamiNdNBHbJo-iSaU3PbMqsim6jfohYk6BavI" 
                     alt="Placeholder de imagem para detecção de resíduo" 
-                    width={800} 
-                    height={600} 
+                    width={2200} 
+                    height={1467} 
                     className="object-contain opacity-50 max-h-[300px] w-auto"
                     data-ai-hint="placeholder item" 
                   />
@@ -160,4 +160,3 @@ export default function DetectItemPage() {
     </AppLayout>
   );
 }
-
