@@ -59,12 +59,12 @@ export default function DashboardPage(props: DashboardPageProps) {
                 <div className="md:flex">
                     <div className="md:w-1/2">
                         <Image
-                            src="https://cdn.pixabay.com/illustrations/recycling-bins-containers-recycle-6000035_1280.png"
-                            alt="Quatro contentores de reciclagem coloridos com símbolos de reciclagem."
-                            width={1280}
-                            height={853}
+                            src="https://fastly.picsum.photos/id/634/2200/1467.jpg?hmac=Zj-RGFYamiNdNBHbJo-iSaU3PbMqsim6jfohYk6BavI"
+                            alt="Ilustração abstrata de contentores de reciclagem coloridos."
+                            width={2200}
+                            height={1467}
                             className="h-full w-full object-cover"
-                            data-ai-hint="recycling bins"
+                            data-ai-hint="abstract recycling"
                         />
                     </div>
                     <div className="md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
