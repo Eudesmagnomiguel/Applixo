@@ -130,12 +130,6 @@ export default function LoginPage() {
               </Button>
             </form>
 
-            <div className="text-xs text-muted-foreground text-center flex items-center justify-center">
-              <Info className="h-4 w-4 mr-1.5 text-primary/70" />
-              <span>Conta padrão: admin@applixo.com / applixo123</span>
-            </div>
-
-
             <div className="relative my-6">
               <div className="absolute inset-0 flex items-center">
                 <span className="w-full border-t border-border" />
