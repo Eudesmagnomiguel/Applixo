@@ -5,7 +5,12 @@ import { Rocket, Target, Settings, Users, HardDrive, Palette, Database, Cloud, M
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
-export default function AboutAppLixoPage() {
+type AboutAppLixoPageProps = {
+  params?: Record<string, string | string[] | undefined>;
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+export default function AboutAppLixoPage(props: AboutAppLixoPageProps) {
   return (
     <AppLayout>
       <div className="container mx-auto py-8">

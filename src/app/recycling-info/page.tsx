@@ -1,3 +1,4 @@
+
 import { AppLayout } from '@/components/layout/AppLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
@@ -97,7 +98,12 @@ function RecyclingInfoCard({ material }: { material: RecyclableMaterial }) {
   );
 }
 
-export default function RecyclingInfoPage() {
+type RecyclingInfoPageProps = {
+  params?: Record<string, string | string[] | undefined>;
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+export default function RecyclingInfoPage(props: RecyclingInfoPageProps) {
   return (
     <AppLayout>
       <div className="container mx-auto py-8">

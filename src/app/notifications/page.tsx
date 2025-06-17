@@ -22,7 +22,12 @@ const getIconForType = (type: string) => {
   }
 };
 
-export default function NotificationsPage() {
+type NotificationsPageProps = {
+  params?: Record<string, string | string[] | undefined>;
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+export default function NotificationsPage(props: NotificationsPageProps) {
   return (
     <AppLayout>
       <div className="container mx-auto py-8">
@@ -45,7 +50,7 @@ export default function NotificationsPage() {
                 Você não tem nenhuma notificação no momento.
               </CardDescription>
               <Button asChild size="lg">
-                <Link href="/dashboard">Voltar ao Início</Link> {/* Updated link */}
+                <Link href="/dashboard">Voltar ao Início</Link>
               </Button>
             </CardContent>
           </Card>

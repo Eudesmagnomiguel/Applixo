@@ -1,3 +1,4 @@
+
 import { AppLayout } from '@/components/layout/AppLayout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -35,7 +36,12 @@ const faqs = [
   }
 ];
 
-export default function FaqPage() {
+type FaqPageProps = {
+  params?: Record<string, string | string[] | undefined>;
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+export default function FaqPage(props: FaqPageProps) {
   return (
     <AppLayout>
       <div className="container mx-auto py-8">
@@ -51,7 +57,7 @@ export default function FaqPage() {
             <Input type="search" placeholder="Pesquisar perguntas..." className="pl-10 text-base h-12 rounded-lg shadow-sm" />
           </div>
         </div>
-        
+
         <Card className="max-w-3xl mx-auto shadow-xl">
           <CardContent className="p-6 md:p-8">
             <Accordion type="single" collapsible className="w-full space-y-4">

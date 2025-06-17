@@ -6,7 +6,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ShoppingBag, Recycle, Info, ArrowRight } from 'lucide-react';
 
-export default function DashboardPage() {
+type DashboardPageProps = {
+  params?: Record<string, string | string[] | undefined>;
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+export default function DashboardPage(props: DashboardPageProps) {
   return (
     <AppLayout>
       <div className="flex flex-col gap-8">

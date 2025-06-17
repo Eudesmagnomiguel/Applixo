@@ -1,3 +1,4 @@
+
 import { AppLayout } from '@/components/layout/AppLayout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -23,7 +24,12 @@ const userGreenCredit = {
   ]
 };
 
-export default function GreenCreditPage() {
+type GreenCreditPageProps = {
+  params?: Record<string, string | string[] | undefined>;
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+export default function GreenCreditPage(props: GreenCreditPageProps) {
   const progressToNextTier = (userGreenCredit.points / userGreenCredit.nextTierPoints) * 100;
 
   return (
