@@ -1,3 +1,4 @@
+
 import { AppLayout } from '@/components/layout/AppLayout';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -15,11 +16,11 @@ const profileLinks = [
 ];
 
 const userData = {
-  name: 'Eudesmagno Miguel',
-  email: 'eudesmagno.miguel@example.com',
+  name: 'António Kaionda',
+  email: 'antonio.kaionda@applixo.com',
   address: 'Zango 8000, Viana, Luanda',
-  avatarUrl: 'https://picsum.photos/seed/userEM/200/200',
-  initials: 'EM',
+  avatarUrl: 'https://picsum.photos/seed/userAK/200/200',
+  initials: 'AK',
 };
 
 export default function ProfilePage() {
@@ -130,3 +131,4 @@ function InfoItem({ icon, label, value }: InfoItemProps) {
     </div>
   );
 }
+

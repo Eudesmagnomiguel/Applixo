@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import {
   DropdownMenu,
@@ -15,7 +16,7 @@ import { Logo } from '@/components/icons/Logo';
 import { NavLinks } from './Sidebar';
 
 export function Header() {
-  const userInitials = "EM"; // Eudesmagno Miguel
+  const userInitials = "AK"; // António Kaionda
 
   return (
     <header className="sticky top-0 z-50 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 shadow-sm">
@@ -51,7 +52,7 @@ export function Header() {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" className="rounded-full">
               <Avatar className="h-9 w-9">
-                <AvatarImage src="https://picsum.photos/seed/userEM/100/100" alt="User Avatar" data-ai-hint="user avatar" />
+                <AvatarImage src="https://picsum.photos/seed/userAK/100/100" alt="User Avatar" data-ai-hint="user avatar" />
                 <AvatarFallback>{userInitials}</AvatarFallback>
               </Avatar>
               <span className="sr-only">Toggle user menu</span>
@@ -87,3 +88,4 @@ export function Header() {
     </header>
   );
 }
+
