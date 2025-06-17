@@ -6,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label'; 
 import Link from 'next/link';
-import { KeyRound, Mail, ArrowRight } from 'lucide-react';
+import { KeyRound, Mail, ArrowRight, Info } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const GoogleIcon = () => (
@@ -67,6 +67,7 @@ export default function LoginPage() {
                     required
                     className="h-12 w-full rounded-md border-input bg-background/80 pl-10 pr-3 text-base placeholder:text-muted-foreground/80"
                     placeholder="seu@email.com"
+                    defaultValue="user@example.com"
                   />
                 </div>
               </div>
@@ -87,6 +88,7 @@ export default function LoginPage() {
                         required
                         className="h-12 w-full rounded-md border-input bg-background/80 pl-10 pr-3 text-base placeholder:text-muted-foreground/80"
                         placeholder="Sua senha"
+                        defaultValue="password123"
                     />
                 </div>
                 <div className="mt-2 text-right text-sm">
@@ -104,6 +106,12 @@ export default function LoginPage() {
                 Entrar 
               </Button>
             </form>
+
+            <div className="text-xs text-muted-foreground text-center flex items-center justify-center">
+              <Info className="h-4 w-4 mr-1.5 text-primary/70" />
+              <span>Para fins de demonstração, clique em "Entrar".</span>
+            </div>
+
 
             <div className="relative my-6">
               <div className="absolute inset-0 flex items-center">
@@ -141,3 +149,4 @@ export default function LoginPage() {
     </div>
   );
 }
+
