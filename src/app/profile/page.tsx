@@ -1,4 +1,6 @@
 
+"use client";
+
 import { AppLayout } from '@/components/layout/AppLayout';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -6,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
 import { User, MapPin, Mail, History, Bell, HelpCircle, FileText, Award, LogOut, Edit3, ShieldCheck, Gift } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const profileLinks = [
   { href: '/collection-history', icon: History, label: 'Histórico de Recolhas' },
@@ -24,6 +27,12 @@ const userData = {
 };
 
 export default function ProfilePage() {
+  const router = useRouter();
+
+  const handleLogout = () => {
+    router.push('/login');
+  };
+
   return (
     <AppLayout>
       <div className="container mx-auto py-8">
@@ -86,7 +95,7 @@ export default function ProfilePage() {
                 ))}
               </div>
               <Separator className="my-6" />
-              <Button variant="destructive" className="w-full sm:w-auto">
+              <Button variant="destructive" className="w-full sm:w-auto" onClick={handleLogout}>
                 <LogOut className="mr-2 h-4 w-4" />
                 Fechar Sessão
               </Button>

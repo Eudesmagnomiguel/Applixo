@@ -1,4 +1,6 @@
 
+"use client";
+
 import Link from 'next/link';
 import {
   DropdownMenu,
@@ -14,9 +16,15 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, User, LogOut, Settings, HelpCircle } from 'lucide-react';
 import { Logo } from '@/components/icons/Logo';
 import { NavLinks } from './Sidebar';
+import { useRouter } from 'next/navigation';
 
 export function Header() {
   const userInitials = "AK"; // António Kaionda
+  const router = useRouter();
+
+  const handleLogout = () => {
+    router.push('/login');
+  };
 
   return (
     <header className="sticky top-0 z-50 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 shadow-sm">
@@ -35,7 +43,7 @@ export function Header() {
               </Link>
             </div>
             <nav className="flex-1 overflow-auto py-4">
-              <NavLinks isMobile={true} />
+              <NavLinks isMobile={true} onLinkClick={() => (document.querySelector('[data-radix-dialog-close]') as HTMLElement)?.click()} />
             </nav>
           </SheetContent>
         </Sheet>
@@ -78,7 +86,7 @@ export function Header() {
               </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onSelect={handleLogout}>
               <LogOut className="mr-2 h-4 w-4" />
               <span>Sair</span>
             </DropdownMenuItem>
