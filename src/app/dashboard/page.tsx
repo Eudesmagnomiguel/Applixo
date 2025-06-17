@@ -59,12 +59,12 @@ export default function DashboardPage(props: DashboardPageProps) {
                 <div className="md:flex">
                     <div className="md:w-1/2">
                         <Image
-                            src="https://placehold.co/800x600.png"
-                            alt="Visão de uma cidade limpa e sustentável graças à reciclagem."
-                            width={800}
-                            height={600}
+                            src="https://cdn.pixabay.com/illustrations/recycling-bins-containers-recycle-6000035_1280.png"
+                            alt="Quatro contentores de reciclagem coloridos com símbolos de reciclagem."
+                            width={1280}
+                            height={853}
                             className="h-full w-full object-cover"
-                            data-ai-hint="clean city"
+                            data-ai-hint="recycling bins"
                         />
                     </div>
                     <div className="md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
